@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaTwitter, FaDribbble, FaLinkedinIn, FaGithub, FaDownload } from "react-icons/fa";
+import { FaLinkedinIn, FaGithub, FaDownload } from "react-icons/fa";
 import { SiFacebook } from "react-icons/si";
 import { MdOutlineMailOutline } from "react-icons/md";
 

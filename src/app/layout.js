@@ -16,8 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Tonoy Sharma",
-  description: "Best Portfolio in Bangladesh",
+  title: "Tonoy Sharma | Developer Portfolio",
+  description:
+    "Explore my portfolio, projects, skills, and development journey.",
 };
 
 export default function RootLayout({ children }) {
