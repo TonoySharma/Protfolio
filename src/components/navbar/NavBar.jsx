@@ -34,14 +34,13 @@ const NavBar = () => {
 
   return (
     <nav
-      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        scrolled
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled
           ? "bg-[#0f0715]/80 backdrop-blur-md border-b border-purple-500/20 py-2"
           : "bg-transparent py-4"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 lg:px-12">
-        
+
         {/* Logo */}
         <div className="flex items-center gap-2 group cursor-pointer">
           <Link href="/" className="no-underline hover:no-underline">
@@ -75,7 +74,7 @@ const NavBar = () => {
         <div className="hidden items-center gap-5 md:flex">
           <Link href="/contact" className="no-underline hover:no-underline">
             <Button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold rounded-full px-8 hover:scale-105 transition-transform">
-              Hire Me <MdArrowRightAlt className="mt-2"/>
+              Hire Me <MdArrowRightAlt className="mt-2" />
             </Button>
           </Link>
         </div>
@@ -87,81 +86,80 @@ const NavBar = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <span
-              className={`h-0.5 w-6 bg-white transition-all ${
-                isMenuOpen ? "rotate-45 translate-y-2" : ""
-              }`}
+              className={`h-0.5 w-6 bg-white transition-all ${isMenuOpen ? "rotate-45 translate-y-2" : ""
+                }`}
             ></span>
             <span
-              className={`h-0.5 w-6 bg-white transition-all ${
-                isMenuOpen ? "opacity-0" : ""
-              }`}
+              className={`h-0.5 w-6 bg-white transition-all ${isMenuOpen ? "opacity-0" : ""
+                }`}
             ></span>
             <span
-              className={`h-0.5 w-6 bg-white transition-all ${
-                isMenuOpen ? "-rotate-45 -translate-y-1.5" : ""
-              }`}
+              className={`h-0.5 w-6 bg-white transition-all ${isMenuOpen ? "-rotate-45 -translate-y-1.5" : ""
+                }`}
             ></span>
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
-    <AnimatePresence>
-  {isMenuOpen && (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-40 md:hidden"
-    >
-      {/* Background Blur */}
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-xl" />
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-40 md:hidden"
+          >
+            {/* Background Blur */}
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-xl" />
 
-      {/* Menu Panel */}
-      <motion.div
-        initial={{ x: 120, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        exit={{ x: 120, opacity: 0 }}
-        transition={{ type: "spring", stiffness: 120 }}
-        className="relative ml-auto h-full w-[80%] max-w-sm bg-gradient-to-b from-[#0f0715]/95 to-black/95 backdrop-blur-2xl p-8 pt-24 border-l border-purple-500/20 flex flex-col"
-      >
-        {/* Nav Links */}
-        <ul className="flex flex-col gap-6">
-          {NavLinks.map((link, i) => (
-            <motion.li
-              key={link.name}
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: i * 0.1 }}
-              whileTap={{ scale: 0.95 }}
+            {/* Menu Panel */}
+            <motion.div
+              initial={{ x: 120, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: 120, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 120 }}
+              className="relative ml-auto h-full w-[80%] max-w-sm bg-gradient-to-b from-[#0f0715]/95 to-black/95 backdrop-blur-2xl p-8 pt-24 border-l border-purple-500/20 flex flex-col"
             >
-              <Link
-                href={link.href}
-                onClick={() => setIsMenuOpen(false)}
-                className="group flex items-center justify-between text-2xl font-semibold text-white hover:text-purple-400 transition-all"
-              >
-                {link.name}
+              {/* Nav Links */}
+              <ul className="flex flex-col gap-6">
+                {NavLinks.map((link, i) => (
+                  <motion.li
+                    key={link.name}
+                    initial={{ opacity: 0, x: 40 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="group flex items-center justify-between text-2xl font-semibold text-white hover:text-purple-400 transition-all"
+                    >
+                      {link.name}
 
-                {/* Arrow hover animation */}
-                <MdArrowRightAlt className="opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all mt-2" />
-              </Link>
+                      {/* Arrow hover animation */}
+                      <MdArrowRightAlt className="opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all mt-2" />
+                    </Link>
 
-              {/* Underline glow */}
-              <span className="block h-[1px] w-0 bg-gradient-to-r from-purple-500 to-blue-500 group-hover:w-full transition-all mt-1"></span>
-            </motion.li>
-          ))}
-        </ul>
+                    {/* Underline glow */}
+                    <span className="block h-[1px] w-0 bg-gradient-to-r from-purple-500 to-blue-500 group-hover:w-full transition-all mt-1"></span>
+                  </motion.li>
+                ))}
+              </ul>
 
-        {/* Bottom CTA */}
-        <div className="mt-auto flex flex-col gap-4">
-          <Button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold py-6 text-lg rounded-xl shadow-lg shadow-purple-500/20 hover:scale-105 transition-all items-center">
-            Hire Me <MdArrowRightAlt className="mt-2"/>
-          </Button>
-        </div>
-      </motion.div>
-    </motion.div>
-  )}
-</AnimatePresence>
+              {/* Bottom CTA */}
+              <div className="mt-auto flex flex-col gap-4">
+                <Link href="/contact">
+                  <Button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold py-6 text-lg rounded-xl shadow-lg shadow-purple-500/20 hover:scale-105 transition-all items-center">
+                    Hire Me <MdArrowRightAlt className="mt-2" />
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

@@ -4,7 +4,6 @@ import NavBar from "@/components/navbar/NavBar";
 import "animate.css";
 import CursorFollower from "@/components/cursorFollower/CursorFollower";
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -16,9 +15,58 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Tonoy Sharma | Developer Portfolio",
+  metadataBase: new URL("https://yourdomain.com"),
+
+  title: {
+    default: "Tonoy Sharma | Full Stack Developer",
+    template: "%s | Tonoy Sharma",
+  },
+
   description:
-    "Explore my portfolio, projects, skills, and development journey.",
+    "Modern and responsive developer portfolio showcasing projects, skills, and experience in full stack web development.",
+
+  keywords: [
+    "Tonoy Sharma",
+    "Full Stack Developer",
+    "MERN Stack Developer",
+    "React Developer",
+    "Next.js Developer",
+    "Frontend Developer",
+    "Web Developer Bangladesh",
+  ],
+
+  authors: [{ name: "Tonoy Sharma" }],
+  creator: "Tonoy Sharma",
+
+  openGraph: {
+    title: "Tonoy Sharma | Full Stack Developer",
+    description:
+      "Explore my portfolio, projects, technical skills, and development journey.",
+    url: "https://yourdomain.com",
+    siteName: "Tonoy Portfolio",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Tonoy Sharma Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Tonoy Sharma | Full Stack Developer",
+    description:
+      "Modern developer portfolio built with Next.js, React, and Tailwind CSS.",
+    images: ["/og-image.png"],
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -29,13 +77,9 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        
-   
-          <NavBar />
-          <CursorFollower />
-          <main>{children}</main>
-   
-
+        <NavBar />
+        <CursorFollower />
+        <main>{children}</main>
       </body>
     </html>
   );
