@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://yourdomain.com"),
+  metadataBase: new URL("https://protfolio-wine-two.vercel.app/"),
 
   title: {
     default: "Tonoy Sharma | Full Stack Developer",
@@ -42,11 +42,11 @@ export const metadata = {
     title: "Tonoy Sharma | Full Stack Developer",
     description:
       "Explore my portfolio, projects, technical skills, and development journey.",
-    url: "https://yourdomain.com",
+    url: "https://protfolio-wine-two.vercel.app/",
     siteName: "Tonoy Portfolio",
     images: [
       {
-        url: "/og-image.png",
+        url: "/tonoy.jpg",
         width: 1200,
         height: 630,
         alt: "Tonoy Sharma Portfolio",
@@ -61,11 +61,11 @@ export const metadata = {
     title: "Tonoy Sharma | Full Stack Developer",
     description:
       "Modern developer portfolio built with Next.js, React, and Tailwind CSS.",
-    images: ["/og-image.png"],
+    images: ["/tonoy.jpg"],
   },
 
   icons: {
-    icon: "/favicon.ico",
+    icon: "/tonoy.png",
   },
 };
 

@@ -1,132 +1,164 @@
-"use client";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { FiGithub, FiExternalLink } from "react-icons/fi";
+'use client'; // Framer motion use korle Next.js e oboshshoi client component hote hobe
 
-const ProjectsPage = () => {
-  const [filter, setFilter] = useState("All");
+import React from 'react';
+import { ExternalLink } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
-  const categories = ["All", "Web Design", "Full Stack", "React"];
+const projects = [
+  {
+    title: "Tiles Gallery",
+    description: "Premium tile browsing platform with server-side search and OAuth.",
+    image: "/project-5.png",
+    tags: ["NEXT.JS 15", "MONGODB", "HEROUI"],
+    liveLink: "#",
+    githubLink: "#",
+    urlBar: "tiles-gallery.vercel.app"
+  },
+  {
+    title: "Tiles Gallery",
+    description: "Premium tile browsing platform with server-side search and OAuth.",
+    image: "/project-6.png",
+    tags: ["NEXT.JS 15", "MONGODB", "HEROUI"],
+    liveLink: "#",
+    githubLink: "#",
+    urlBar: "tiles-gallery.vercel.app"
+  },
+  {
+    title: "Tiles Gallery",
+    description: "Premium tile browsing platform with server-side search and OAuth.",
+    image: "/project-3.png",
+    tags: ["NEXT.JS 15", "MONGODB", "HEROUI"],
+    liveLink: "#",
+    githubLink: "#",
+    urlBar: "tiles-gallery.vercel.app"
+  },
+  {
+    title: "Tiles Gallery",
+    description: "Premium tile browsing platform with server-side search and OAuth.",
+    image: "/project-2.png",
+    tags: ["NEXT.JS 15", "MONGODB", "HEROUI"],
+    liveLink: "#",
+    githubLink: "#",
+    urlBar: "tiles-gallery.vercel.app"
+  },
+ 
+];
 
-  const projectData = [
-    {
-      id: 1,
-      title: "E-Commerce Dashboard",
-      category: "Full Stack",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
-      link: "#",
-      github: "#",
-      description: "A premium dashboard with real-time data visualization."
-    },
-    {
-      id: 2,
-      title: "Portfolio Website",
-      category: "React",
-      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop",
-      link: "#",
-      github: "#",
-      description: "Modern portfolio with framer motion and dark theme."
-    },
-    {
-      id: 3,
-      title: "Agency Landing Page",
-      category: "Web Design",
-      image: "https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1964&auto=format&fit=crop",
-      link: "#",
-      github: "#",
-      description: "Clean and minimalist landing page for digital agencies."
-    },
-  ];
+// Animation Variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15 
+    }
+  }
+};
 
-  const filteredProjects = filter === "All" 
-    ? projectData 
-    : projectData.filter(p => p.category === filter);
+const cardVariants = {
+  hidden: { y: 30, opacity: 0 },
+  visible: { 
+    y: 0, 
+    opacity: 1,
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+};
 
+const ProjectSection = () => {
   return (
-    <section className="bg-[#05010d] min-h-screen py-24 px-6 relative">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-[#0b0718] text-white py-24 px-6 lg:px-12 overflow-hidden">
+      <div className="max-w-[1400px] mx-auto">
         
-        {/* Header */}
-        <div className="text-center mb-16">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500 mb-6"
-          >
-            My Recent Works
-          </motion.h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            We put your ideas and thus your wishes in the focus of our experienced 
-            and skilled development team.
+        {/* Header Section with Motion */}
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
+          <h2 className="text-4xl md:text-6xl font-extrabold mb-5 tracking-tight bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
+            Featured Projects
+          </h2>
+          <p className="text-gray-400 text-lg max-w-xl font-light">
+            Production-grade applications — full-stack architecture, polished UI, and real features.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`px-8 py-3 rounded-full font-medium transition-all duration-300 border ${
-                filter === cat 
-                  ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white border-transparent" 
-                  : "bg-[#140c1c] text-gray-400 border-white/5 hover:border-purple-500/50"
-              }`}
+        {/* 4-Column Grid */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6"
+        >
+          {projects.map((project, index) => (
+            <motion.div 
+              key={index} 
+              variants={cardVariants}
+              className="group relative"
             >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Projects Grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
-              <motion.div
-                layout
-                key={project.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
-                className="group relative bg-[#140c1c] rounded-[32px] overflow-hidden border border-white/5"
-              >
-                {/* Project Image */}
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-2"
-                  />
-                </div>
-
-                {/* Overlay Content */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#05010d] via-[#05010d]/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
-                  <p className="text-purple-400 font-mono text-sm mb-2">{project.category}</p>
-                  <h3 className="text-2xl font-bold text-white mb-4">{project.title}</h3>
-                  
-                  <div className="flex gap-4">
-                    <a href={project.github} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-purple-600 transition-colors">
-                      <FiGithub size={20} />
-                    </a>
-                    <a href={project.link} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
-                      <FiExternalLink size={20} />
-                    </a>
+              <div className="h-full bg-[#161025]/50 backdrop-blur-sm rounded-3xl p-4 border border-white/5 transition-all duration-500 hover:bg-[#1c1432] hover:border-purple-500/40 hover:shadow-[0_20px_50px_rgba(139,92,246,0.15)] flex flex-col">
+                
+                {/* Browser Mockup Style */}
+                <div className="flex items-center justify-between mb-4 px-1">
+                  <div className="flex gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+                  </div>
+                  <div className="text-[9px] text-gray-500 font-mono bg-black/20 px-2 py-0.5 rounded border border-white/5 truncate max-w-[120px]">
+                    {project.urlBar || 'localhost:3000'}
                   </div>
                 </div>
 
-                {/* Bottom Title (Static) */}
-                <div className="p-6 group-hover:opacity-0 transition-opacity">
-                   <h3 className="text-xl font-bold text-white">{project.title}</h3>
-                   <p className="text-gray-500 text-sm mt-1">{project.category}</p>
+                {/* Image Container with Zoom */}
+                <div className="relative aspect-[4/3] overflow-hidden rounded-xl mb-5">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0b0718] via-transparent to-transparent opacity-60" />
                 </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+
+                {/* Content Area */}
+                <div className="flex flex-col flex-grow">
+                  <div className="flex flex-wrap gap-1.5 mb-3">
+                    {project.tags.slice(0, 3).map((tag, i) => (
+                      <span key={i} className="text-[9px] px-2 py-0.5 bg-purple-500/10 border border-purple-500/20 rounded-md text-purple-300 font-bold uppercase">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <h3 className="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors">
+                    {project.title}
+                  </h3>
+                  
+                  <p className="text-gray-400 text-xs leading-relaxed mb-6 line-clamp-3">
+                    {project.description}
+                  </p>
+
+                  {/* Links at the Bottom */}
+                  <div className="mt-auto pt-4 flex items-center gap-5 border-t border-white/5">
+                    <a href={project.liveLink} className="flex items-center gap-1.5 text-xs font-bold hover:text-purple-400 transition-colors uppercase tracking-widest">
+                      <ExternalLink size={14} /> Live view
+                    </a>
+                    <a href={project.githubLink} className="flex items-center gap-1.5 text-xs font-bold hover:text-purple-400 transition-colors uppercase tracking-widest">
+                      <FaGithub size={14} /> Code
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>
   );
 };
 
-export default ProjectsPage;
+export default ProjectSection;
