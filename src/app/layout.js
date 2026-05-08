@@ -46,7 +46,7 @@ export const metadata = {
     siteName: "Tonoy Portfolio",
     images: [
       {
-        url: "/tonoy.jpg",
+        url: "/tonoy.png",
         width: 1200,
         height: 630,
         alt: "Tonoy Sharma Portfolio",
@@ -61,7 +61,7 @@ export const metadata = {
     title: "Tonoy Sharma | Full Stack Developer",
     description:
       "Modern developer portfolio built with Next.js, React, and Tailwind CSS.",
-    images: ["/tonoy.jpg"],
+    images: ["/tonoy.png"],
   },
 
   icons: {

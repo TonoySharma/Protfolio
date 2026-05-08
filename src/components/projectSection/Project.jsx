@@ -1,4 +1,4 @@
-'use client'; // Framer motion use korle Next.js e oboshshoi client component hote hobe
+'use client';
 
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
@@ -7,39 +7,39 @@ import { motion } from 'framer-motion';
 
 const projects = [
   {
-    title: "Tiles Gallery",
+    title: "SkillSphere",
     description: "Premium tile browsing platform with server-side search and OAuth.",
     image: "/project-5.png",
     tags: ["NEXT.JS 15", "MONGODB", "HEROUI"],
-    liveLink: "#",
-    githubLink: "#",
+    liveLink: "https://skill-sphere-assignment-8.vercel.app/",
+    githubLink: "https://github.com/TonoySharma/-SkillSphere--assignment-8",
     urlBar: "tiles-gallery.vercel.app"
   },
   {
-    title: "Tiles Gallery",
+    title: "Keep Keeper",
     description: "Premium tile browsing platform with server-side search and OAuth.",
     image: "/project-6.png",
     tags: ["NEXT.JS 15", "MONGODB", "HEROUI"],
-    liveLink: "#",
-    githubLink: "#",
+    liveLink: "https://cheery-longma-bd48fb.netlify.app/",
+    githubLink: "https://github.com/TonoySharma/assignment-7-keep-keeper",
     urlBar: "tiles-gallery.vercel.app"
   },
   {
-    title: "Tiles Gallery",
+    title: "Book Vaibe",
     description: "Premium tile browsing platform with server-side search and OAuth.",
     image: "/project-3.png",
     tags: ["NEXT.JS 15", "MONGODB", "HEROUI"],
-    liveLink: "#",
-    githubLink: "#",
+    liveLink: "https://peaceful-sorbet-f2975e.netlify.app/",
+    githubLink: "https://github.com/TonoySharma/Book-Vaibe",
     urlBar: "tiles-gallery.vercel.app"
   },
   {
-    title: "Tiles Gallery",
+    title: "DigiTools",
     description: "Premium tile browsing platform with server-side search and OAuth.",
     image: "/project-2.png",
     tags: ["NEXT.JS 15", "MONGODB", "HEROUI"],
-    liveLink: "#",
-    githubLink: "#",
+    liveLink: "https://astonishing-hamster-37360d.netlify.app/",
+    githubLink: "https://github.com/TonoySharma/assignment-6",
     urlBar: "tiles-gallery.vercel.app"
   },
  
@@ -92,7 +92,7 @@ const ProjectSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
         >
           {projects.map((project, index) => (
             <motion.div 
@@ -144,10 +144,10 @@ const ProjectSection = () => {
 
                   {/* Links at the Bottom */}
                   <div className="mt-auto pt-4 flex items-center gap-5 border-t border-white/5">
-                    <a href={project.liveLink} className="flex items-center gap-1.5 text-xs font-bold hover:text-purple-400 transition-colors uppercase tracking-widest">
+                    <a href={project.liveLink} className="flex items-center gap-1.5 text-xs font-bold hover:text-purple-400 transition-colors uppercase tracking-widest hover:underline">
                       <ExternalLink size={14} /> Live view
                     </a>
-                    <a href={project.githubLink} className="flex items-center gap-1.5 text-xs font-bold hover:text-purple-400 transition-colors uppercase tracking-widest">
+                    <a href={project.githubLink} className="flex items-center gap-1.5 text-xs font-bold hover:text-purple-400 transition-colors uppercase tracking-widest hover:underline">
                       <FaGithub size={14} /> Code
                     </a>
                   </div>

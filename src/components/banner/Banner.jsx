@@ -94,7 +94,7 @@ export default function Banner() {
 
                         <div className="relative w-full h-full rounded-[26px] overflow-hidden">
                             <Image
-                                src="/tonoy.jpg"
+                                src="/tonoy.png"
                                 alt="Profile of Tonoy Sharma"
                                 layout="fill"
                                 objectFit="cover"
