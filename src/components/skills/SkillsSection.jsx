@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+
 import {
   SiNextdotjs,
   SiMongodb,
@@ -21,88 +22,113 @@ import { RiHtml5Fill } from "react-icons/ri";
 const skills = [
   {
     name: "HTML",
-    level: "ADVANCED",
+    level: "Advanced",
     icon: <RiHtml5Fill className="text-orange-500" />,
   },
   {
     name: "React.js",
-    level: "ADVANCED",
-    icon: <SiReact className="text-[#61DAFB]" />,
+    level: "Advanced",
+    icon: <SiReact className="text-cyan-400" />,
   },
   {
     name: "Next.js",
-    level: "ADVANCED",
+    level: "Advanced",
     icon: <SiNextdotjs className="text-white" />,
   },
   {
     name: "JavaScript",
-    level: "ADVANCED",
-    icon: <SiJavascript className="text-[#F7DF1E]" />,
+    level: "Advanced",
+    icon: <SiJavascript className="text-yellow-300" />,
   },
   {
     name: "Node.js",
-    level: "INTERMEDIATE",
-    icon: <SiNodedotjs className="text-[#339933]" />,
+    level: "Intermediate",
+    icon: <SiNodedotjs className="text-green-500" />,
   },
   {
     name: "MongoDB",
-    level: "INTERMEDIATE",
-    icon: <SiMongodb className="text-[#47A248]" />,
+    level: "Intermediate",
+    icon: <SiMongodb className="text-green-400" />,
   },
   {
     name: "Tailwind CSS",
-    level: "ADVANCED",
-    icon: <SiTailwindcss className="text-[#06B6D4]" />,
+    level: "Advanced",
+    icon: <SiTailwindcss className="text-sky-400" />,
   },
   {
     name: "DaisyUI",
-    level: "INTERMEDIATE",
-    icon: <SiDaisyui className="text-[#FF9900]" />,
+    level: "Intermediate",
+    icon: <SiDaisyui className="text-pink-400" />,
   },
   {
     name: "HeroUI",
-    level: "INTERMEDIATE",
-    icon: <TbBrandVscode className="text-[#8B5CF6]" />,
+    level: "Intermediate",
+    icon: <TbBrandVscode className="text-violet-400" />,
   },
   {
-    name: "Git / GitHub",
-    level: "ADVANCED",
+    name: "GitHub",
+    level: "Advanced",
     icon: <SiGithub className="text-white" />,
   },
   {
     name: "Vercel",
-    level: "INTERMEDIATE",
+    level: "Intermediate",
     icon: <SiVercel className="text-white" />,
   },
   {
     name: "Netlify",
-    level: "INTERMEDIATE",
-    icon: <SiNetlify className="text-[#28c2ff]" />,
+    level: "Intermediate",
+    icon: <SiNetlify className="text-cyan-400" />,
   },
 ];
 
-const SkillsPage = () => {
+const Technologies = () => {
   return (
-    <section className="bg-[#05010d] py-16 md:py-20 px-4 sm:px-6 relative overflow-hidden">
-      {/* Background Blur */}
-      <div className="absolute top-0 right-0 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-blue-900/20 blur-[120px] rounded-full" />
-      <div className="absolute bottom-0 left-0 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-purple-900/20 blur-[120px] rounded-full" />
+    <section className="relative overflow-hidden bg-[#030014] py-20 px-4 sm:px-6 lg:px-8">
+      
+      {/* Background Glow */}
+      <div className="absolute top-[-10%] left-[-10%] h-[350px] w-[350px] rounded-full bg-violet-700/20 blur-[120px]" />
+      
+      <div className="absolute bottom-[-10%] right-[-10%] h-[350px] w-[350px] rounded-full bg-cyan-500/20 blur-[120px]" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      {/* Grid Overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto">
+        
         {/* Heading */}
-        <div className="mb-10 md:mb-14 text-center md:text-left">
-          <p className="text-purple-500 font-mono tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-3">
+        <div className="text-center mb-14">
+          <motion.p
+            initial={{ opacity: 0, y: -15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="inline-flex items-center gap-2 text-[11px] tracking-[0.35em] uppercase text-violet-400 font-medium mb-5"
+          >
+            <span className="h-[6px] w-[6px] rounded-full bg-violet-400" />
             Tech Stack
-          </p>
+          </motion.p>
 
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif text-white mb-4 leading-tight">
-            Skills & Technologies
-          </h2>
+          <motion.h2
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight"
+          >
+            Skills &{" "}
+            <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+              Technologies
+            </span>
+          </motion.h2>
 
-          <p className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto md:mx-0">
-            The tools I use to build modern, scalable full-stack
-            applications.
-          </p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="mt-5 text-gray-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed"
+          >
+            Modern technologies and tools I use to craft fast,
+            scalable and interactive full-stack web applications.
+          </motion.p>
         </div>
 
         {/* Skills Grid */}
@@ -110,33 +136,73 @@ const SkillsPage = () => {
           {skills.map((skill, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.08 }}
-              whileHover={{ y: -6 }}
+              transition={{
+                duration: 0.45,
+                delay: index * 0.06,
+              }}
+              whileHover={{
+                y: -10,
+              }}
               className="group relative"
             >
-              <div className="relative h-full p-5 sm:p-7 md:p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md flex flex-col items-center justify-center transition-all duration-500 group-hover:bg-white/[0.08] group-hover:border-white/20">
+              {/* Card */}
+              <div
+                className="
+                relative h-full overflow-hidden rounded-3xl
+                border border-white/10
+                bg-white/[0.04]
+                backdrop-blur-xl
+                p-5 sm:p-7
+                transition-all duration-500
+
+                group-hover:border-violet-500/40
+                group-hover:bg-white/[0.06]
+                group-hover:shadow-[0_0_30px_rgba(139,92,246,0.18)]
+              "
+              >
                 
+                {/* Top Glow */}
+                <div className="absolute top-0 left-0 h-24 w-24 rounded-full bg-violet-500/10 blur-3xl" />
+
+                {/* Hover Gradient */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.04),transparent)] -translate-x-full group-hover:translate-x-full" />
+
                 {/* Icon */}
-                <div className="w-14 h-14 sm:w-16 sm:h-16 mb-4 sm:mb-6 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-3xl sm:text-4xl shadow-xl transition-transform duration-500 group-hover:scale-110">
-                  {skill.icon}
+                <div className="relative mb-5 flex items-center justify-center">
+                  <div
+                    className="
+                    flex h-16 w-16 sm:h-20 sm:w-20
+                    items-center justify-center
+                    rounded-2xl
+                    border border-white/10
+                    bg-white/5
+                    text-3xl sm:text-4xl
+
+                    transition-all duration-500
+
+                    group-hover:bg-violet-500/10
+                    group-hover:shadow-[0_0_25px_rgba(139,92,246,0.28)]
+                    group-hover:scale-110
+                  "
+                  >
+                    {skill.icon}
+                  </div>
                 </div>
 
-                {/* Skill Name */}
-                <h3 className="text-white font-semibold text-sm sm:text-lg text-center mb-2">
-                  {skill.name}
-                </h3>
+                {/* Content */}
+                <div className="text-center relative z-10">
+                  <h3 className="text-white text-sm sm:text-lg font-semibold tracking-wide transition-colors duration-300 group-hover:text-violet-300">
+                    {skill.name}
+                  </h3>
 
-                {/* Level */}
-                <div className="flex items-center gap-2 text-[9px] sm:text-[10px] font-bold tracking-widest text-gray-500 group-hover:text-purple-400 transition-colors uppercase">
-                  <span className="w-1.5 h-1.5 rounded-full bg-purple-600 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
-                  {skill.level}
+                  <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] sm:text-xs uppercase tracking-[0.2em] text-gray-300">
+                    <span className="h-2 w-2 rounded-full bg-gradient-to-r from-violet-400 to-cyan-400 shadow-[0_0_12px_rgba(168,85,247,0.9)]" />
+                    {skill.level}
+                  </div>
                 </div>
-
-                {/* Hover Glow */}
-                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[inset_0_0_20px_rgba(255,255,255,0.03)]" />
               </div>
             </motion.div>
           ))}
@@ -146,4 +212,4 @@ const SkillsPage = () => {
   );
 };
 
-export default SkillsPage;
+export default Technologies;

@@ -6,7 +6,7 @@ import { motion, useSpring, useInView } from "framer-motion";
 function Counter({ value, isDecimal = false }) {
   const [displayValue, setDisplayValue] = useState(0);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true }); // যখন স্ক্রিনে আসবে তখনই শুরু হবে
+  const isInView = useInView(ref, { once: true });
 
   const springValue = useSpring(0, {
     stiffness: 100,
@@ -21,7 +21,6 @@ function Counter({ value, isDecimal = false }) {
 
   useEffect(() => {
     return springValue.on("change", (latest) => {
-      // যদি দশমিক সংখ্যা হয় (যেমন ১.৫) তবেtoFixed ব্যবহার করবে, নাহলে রাউন্ড করবে
       if (isDecimal) {
         setDisplayValue(latest.toFixed(1));
       } else {
@@ -35,10 +34,18 @@ function Counter({ value, isDecimal = false }) {
 
 const Counting = () => {
   return (
-    <section className="bg-[#0f0715] py-20">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="relative bg-[#05010d] py-20 overflow-hidden">
+
+      {/* Background Glow */}
+      <div className="absolute top-[-20%] left-[-10%] w-[450px] h-[450px] bg-purple-600/20 blur-[140px] rounded-full" />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[450px] h-[450px] bg-blue-600/20 blur-[140px] rounded-full" />
+
+      {/* Grid Background */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 w-full max-w-5xl mx-auto items-center">
-          
+
           {/* ১. Years of Experience */}
           <div className="flex items-center gap-4 justify-center md:justify-start">
             <h3 className="text-5xl md:text-6xl font-bold text-white tracking-tighter">
@@ -59,22 +66,23 @@ const Counting = () => {
             </p>
           </div>
 
-          {/* ৩. Happy Clients */}
+          {/* ৩. GitHub Repos */}
           <div className="flex items-center gap-4 justify-center md:justify-start">
             <h3 className="text-5xl md:text-6xl font-bold text-white tracking-tighter">
-              <Counter value={20}/>+
+              <Counter value={20} />+
             </h3>
             <p className="text-xs md:text-sm text-neutral-400 leading-tight uppercase tracking-widest font-medium">
               GitHub Repos
             </p>
           </div>
 
+          {/* ৪. Technologies */}
           <div className="flex items-center gap-4 justify-center md:justify-start">
             <h3 className="text-5xl md:text-6xl font-bold text-white tracking-tighter">
               <Counter value={10} />+
             </h3>
             <p className="text-xs md:text-sm text-neutral-400 leading-tight uppercase tracking-widest font-medium">
-             Technologies
+              Technologies
             </p>
           </div>
 

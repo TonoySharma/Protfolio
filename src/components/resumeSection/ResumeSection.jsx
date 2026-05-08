@@ -97,12 +97,12 @@ const EducationSection = () => {
               className="group relative"
             >
               {/* Hover Glow Border */}
-              <div className="absolute -inset-[1px] rounded-[32px] bg-gradient-to-r from-violet-500/30 to-cyan-500/30 opacity-0 blur transition duration-500 group-hover:opacity-100" />
+              <div className="absolute -inset-[1px] rounded-[32px] opacity-0 blur transition duration-500 group-hover:opacity-100" />
 
               {/* Card */}
               <div
                 className="
-                relative h-full overflow-hidden rounded-[32px]
+                relative h-full overflow-hidden rounded-[20px]
                 border border-white/10
                 bg-white/[0.04]
                 backdrop-blur-xl
