@@ -5,8 +5,6 @@ import { Link, Button } from "@heroui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   MdArrowRightAlt,
-  MdOutlineLightMode,
-  MdOutlineDarkMode,
 } from "react-icons/md";
 import { useTheme } from "next-themes";
 
@@ -123,84 +121,76 @@ const NavBar = () => {
       </div>
 
       {/* Mobile Menu */}
-     <AnimatePresence>
-  {isMenuOpen && (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[999] md:hidden overflow-hidden"
-    >
-      {/* Overlay */}
-      <div
-        onClick={() => setIsMenuOpen(false)}
-        className="absolute inset-0 bg-black/70 backdrop-blur-xl"
-      />
 
-      {/* Premium Sidebar */}
-      <motion.div
-        initial={{ x: "100%" }}
-        animate={{ x: 0 }}
-        exit={{ x: "100%" }}
-        transition={{
-          type: "tween",
-          ease: "easeInOut",
-          duration: 0.35,
-        }}
-        className="absolute right-0 top-0 h-screen w-[82%] max-w-[320px] overflow-y-auto border-l border-white/10 bg-[#090411]/95 backdrop-blur-3xl"
-      >
-        {/* Background Glow */}
-        <div className="absolute top-0 right-0 h-60 w-60 bg-purple-600/20 blur-[120px]" />
-        <div className="absolute bottom-0 left-0 h-60 w-60 bg-blue-600/20 blur-[120px]" />
-
-        {/* Content */}
-        <div className="relative z-10 flex h-full flex-col px-6 pt-24 pb-8">
-          
-          {/* Links */}
-          <ul className="flex flex-col gap-6">
-            {NavLinks.map((link, i) => (
-              <motion.li
-                key={link.name}
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{
-                  delay: i * 0.08,
-                }}
-              >
-                <Link
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="group flex items-center justify-between rounded-xl border border-transparent bg-white/[0.03] px-4 py-4 text-lg font-semibold text-white transition-all duration-300 hover:border-purple-500/20 hover:bg-white/[0.06] hover:text-purple-400 no-underline hover:no-underline"
-                >
-                  <span>{link.name}</span>
-
-                  <MdArrowRightAlt className="text-2xl opacity-0 translate-x-2 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
-                </Link>
-              </motion.li>
-            ))}
-          </ul>
-
-          {/* Bottom Button */}
-          <div className="mt-auto pt-10">
-            <Link
-              href="/contact"
+      <AnimatePresence>
+        {isMenuOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               onClick={() => setIsMenuOpen(false)}
-              className="no-underline hover:no-underline"
+              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
+            />
+
+            {/* Menu Content */}
+            <motion.div
+              initial={{ x: "-100%" }} 
+              animate={{ x: 0 }}    
+              exit={{ x: "-100%" }}    
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed top-0 left-0 z-50 h-full w-[80%] max-w-[300px] bg-[#0f0715] border-r border-purple-500/20 p-8 shadow-2xl md:hidden"
             >
-              <Button className="group h-14 w-full rounded-2xl border border-purple-400/20 bg-gradient-to-r from-purple-600 to-blue-600 text-base font-bold text-white shadow-lg shadow-purple-500/20 transition-all duration-300 hover:scale-[1.03]">
-                <span className="flex items-center gap-2">
-                  Hire Me
-                  <MdArrowRightAlt className="text-2xl transition-transform duration-300 group-hover:translate-x-1" />
-                </span>
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </motion.div>
-    </motion.div>
-  )}
-</AnimatePresence>
+              <div className="flex flex-col h-full">
+                {/* Logo in Menu */}
+                <div className="mb-12">
+                  <span className="text-2xl font-black tracking-tighter">
+                    <span className="text-white">T</span>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">ONOY</span>
+                  </span>
+                </div>
+
+                {/* Links */}
+                <ul className="flex flex-col gap-6">
+                  {NavLinks.map((link, index) => (
+                    <motion.li
+                      key={link.name}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 * index }}
+                    >
+                      <Link
+                        href={link.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="text-xl font-medium text-gray-300 hover:text-purple-400 transition-colors no-underline"
+                      >
+                        {link.name}
+                      </Link>
+                    </motion.li>
+                  ))}
+                </ul>
+
+           
+                <div className="mt-auto pb-10">
+                  <Link 
+                    href="/contact" 
+                    onClick={() => setIsMenuOpen(false)}
+                    className="no-underline w-full"
+                  >
+                    <Button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-xl h-12">
+                      Hire Me
+                      <MdArrowRightAlt className="text-xl" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
     </nav>
+
   );
 };
 

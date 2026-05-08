@@ -2,7 +2,7 @@ import Banner from "@/components/banner/Banner";
 import ContactSection from "@/components/contact/Contact";
 import Counting from "@/components/countSection/Counting";
 import Footer from "@/components/footer/Footer";
-import ProjectSection from "@/components/projectSection/Project";
+import MyProject from "@/components/my-project/MyProject";
 import ResumeSection from "@/components/resumeSection/ResumeSection";
 import Technologies from "@/components/technologies/Technologies";
 
@@ -21,7 +21,7 @@ export default function Home() {
          <Counting></Counting>
          <ResumeSection></ResumeSection>
          <Technologies></Technologies>
-         <ProjectSection></ProjectSection>
+         <MyProject></MyProject>
          <ContactSection></ContactSection>
          <Footer></Footer>
     </div>

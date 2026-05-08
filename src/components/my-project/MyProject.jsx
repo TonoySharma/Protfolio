@@ -13,6 +13,7 @@ const projects = [
     tags: ["NEXT.JS", "MONGODB", "HEROUI",],
     liveLink: "https://skill-sphere-assignment-8.vercel.app/",
     githubLink: "https://github.com/TonoySharma/-SkillSphere--assignment-8",
+
   },
   {
     title: "Keep Keeper",
@@ -21,6 +22,7 @@ const projects = [
     tags: ["REACT", "REACT ICON", "DAISYUI"],
     liveLink: "https://cheery-longma-bd48fb.netlify.app/",
     githubLink: "https://github.com/TonoySharma/assignment-7-keep-keeper",
+
   },
   {
     title: "Book Vaibe",
@@ -29,6 +31,7 @@ const projects = [
     tags: ["REACT", "REACT ICON", "DAISYUI"],
     liveLink: "https://peaceful-sorbet-f2975e.netlify.app/",
     githubLink: "https://github.com/TonoySharma/Book-Vaibe",
+
   },
   {
     title: "DigiTools",
@@ -37,9 +40,12 @@ const projects = [
     tags: ["REACT", "REACT ICON", "DAISYUI"],
     liveLink: "https://astonishing-hamster-37360d.netlify.app/",
     githubLink: "https://github.com/TonoySharma/assignment-6",
+
   },
+
 ];
 
+// Animation Variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -61,15 +67,19 @@ const cardVariants = {
 
 const ProjectSection = () => {
   return (
-    <section className="relative w-full min-h-screen bg-[#0b0718] text-white py-24 px-6 lg:px-12 overflow-hidden">
+    <section className="relative overflow-hidden bg-[#030014] text-white py-24 px-6 lg:px-12">
       
       {/* Background Glow */}
       <div className="absolute top-[-10%] left-[-10%] h-[350px] w-[350px] rounded-full bg-violet-700/20 blur-[120px]" />
+
       <div className="absolute bottom-[-10%] right-[-10%] h-[350px] w-[350px] rounded-full bg-cyan-500/20 blur-[120px]" />
+
+      {/* Grid Overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
       <div className="max-w-[1400px] mx-auto relative z-10">
 
-        {/* Header */}
+        {/* Header Section with Motion */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -85,7 +95,7 @@ const ProjectSection = () => {
           </p>
         </motion.div>
 
-        {/* Grid */}
+        {/* 4-Column Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -101,15 +111,80 @@ const ProjectSection = () => {
             >
               <div className="h-full bg-[#161025]/50 backdrop-blur-sm rounded-3xl p-4 border border-white/5 transition-all duration-500 hover:bg-[#1c1432] hover:border-purple-500/40 hover:shadow-[0_20px_50px_rgba(139,92,246,0.15)] flex flex-col">
 
-                <div className="flex items-center justify-between mb-5 px-1">
+                {/* Browser Mockup Style */}
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="flex items-center justify-between mb-5 px-1"
+                >
+                  {/* Premium Window Dots */}
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-purple-500 shadow-[0_0_12px_rgba(168,85,247,0.8)]" />
-                    <div className="w-3 h-3 rounded-full bg-sky-500 shadow-[0_0_12px_rgba(14,165,233,0.8)]" />
-                    <div className="w-3 h-3 rounded-full bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.8)]" />
-                  </div>
-                  <div className="h-[2px] w-20 bg-gradient-to-r from-purple-500/70 to-transparent rounded-full" />
-                </div>
 
+                    {/* Purple */}
+                    <motion.div
+                      animate={{
+                        scale: [1, 1.15, 1],
+                        opacity: [0.7, 1, 0.7],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                      }}
+                      className="relative"
+                    >
+                      <div className="absolute inset-0 rounded-full bg-purple-500 blur-md opacity-70" />
+
+                      <div className="relative w-3 h-3 rounded-full bg-gradient-to-br from-purple-400 to-purple-700 border border-white/20 shadow-[0_0_12px_rgba(168,85,247,0.8)]" />
+                    </motion.div>
+
+                    {/* Blue */}
+                    <motion.div
+                      animate={{
+                        scale: [1, 1.15, 1],
+                        opacity: [0.7, 1, 0.7],
+                      }}
+                      transition={{
+                        duration: 2,
+                        delay: 0.3,
+                        repeat: Infinity,
+                      }}
+                      className="relative"
+                    >
+                      <div className="absolute inset-0 rounded-full bg-sky-500 blur-md opacity-70" />
+
+                      <div className="relative w-3 h-3 rounded-full bg-gradient-to-br from-sky-400 to-sky-700 border border-white/20 shadow-[0_0_12px_rgba(14,165,233,0.8)]" />
+                    </motion.div>
+
+                    {/* Green */}
+                    <motion.div
+                      animate={{
+                        scale: [1, 1.15, 1],
+                        opacity: [0.7, 1, 0.7],
+                      }}
+                      transition={{
+                        duration: 2,
+                        delay: 0.6,
+                        repeat: Infinity,
+                      }}
+                      className="relative"
+                    >
+                      <div className="absolute inset-0 rounded-full bg-emerald-500 blur-md opacity-70" />
+
+                      <div className="relative w-3 h-3 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-700 border border-white/20 shadow-[0_0_12px_rgba(16,185,129,0.8)]" />
+                    </motion.div>
+                  </div>
+
+                  {/* Right Side Glow Line */}
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: "80px" }}
+                    transition={{ duration: 1 }}
+                    className="h-[2px] rounded-full bg-gradient-to-r from-purple-500/70 to-transparent"
+                  />
+                </motion.div>
+
+                {/* Image Container with Zoom */}
                 <div className="relative aspect-[4/3] overflow-hidden rounded-xl mb-5">
                   <img
                     src={project.image}
@@ -119,6 +194,7 @@ const ProjectSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0b0718] via-transparent to-transparent opacity-60" />
                 </div>
 
+                {/* Content Area */}
                 <div className="flex flex-col flex-grow">
                   <div className="flex flex-wrap gap-1.5 mb-3">
                     {project.tags.slice(0, 3).map((tag, i) => (
@@ -136,16 +212,16 @@ const ProjectSection = () => {
                     {project.description}
                   </p>
 
+                  {/* Links at the Bottom */}
                   <div className="mt-auto pt-4 flex items-center gap-5 border-t border-white/5">
-                    <a href={project.liveLink} className="flex items-center gap-1.5 text-xs font-bold hover:text-purple-400 uppercase tracking-widest">
+                    <a href={project.liveLink} className="flex items-center gap-1.5 text-xs font-bold hover:text-purple-400 transition-colors uppercase tracking-widest hover:underline">
                       <ExternalLink size={14} /> Live view
                     </a>
-                    <a href={project.githubLink} className="flex items-center gap-1.5 text-xs font-bold hover:text-purple-400 uppercase tracking-widest">
+                    <a href={project.githubLink} className="flex items-center gap-1.5 text-xs font-bold hover:text-purple-400 transition-colors uppercase tracking-widest hover:underline">
                       <FaGithub size={14} /> Code
                     </a>
                   </div>
                 </div>
-
               </div>
             </motion.div>
           ))}
