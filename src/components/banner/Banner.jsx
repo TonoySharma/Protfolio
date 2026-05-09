@@ -8,7 +8,7 @@ import { MdOutlineMailOutline } from "react-icons/md";
 
 export default function Banner() {
   return (
-    <main className="min-h-screen bg-[#030014] text-white flex items-center justify-center p-6 md:p-12 lg:p-24 overflow-hidden relative">
+    <main className="min-h-screen bg-[#030014] text-white flex items-center justify-center pt-20 md:pt-24 px-6 md:px-12 lg:px-24 pb-12 overflow-hidden relative">
       
       {/* Background Glow */}
       <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-violet-600/20 blur-[150px] rounded-full" />
@@ -93,7 +93,7 @@ export default function Banner() {
                 alt="Profile"
                 layout="fill"
                 objectFit="cover"
-                className="grayscale-[20%] hover:grayscale-0 transition-all duration-500 border-2 border-purple-400 rounded"
+                className="grayscale-[20%] hover:grayscale-0 transition-all duration-500 border-2 border-purple-500 rounded"
                 priority
               />
 

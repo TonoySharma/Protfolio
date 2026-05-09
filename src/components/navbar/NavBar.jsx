@@ -112,7 +112,7 @@ const NavBar = () => {
             position: "absolute", inset: 0, pointerEvents: "none",
             background: `radial-gradient(ellipse 320px 80px at ${mouseX}% 120%, rgba(184,134,11,0.09) 0%, transparent 70%)`,
             transition: "background 0.08s linear",
-          }}/>
+          }} />
         )}
 
         <div style={{
@@ -143,8 +143,8 @@ const NavBar = () => {
                       opacity="0.8"
                     />
                   ))}
-                  <circle cx="18" cy="18" r="10" fill="none" stroke="#c9963a" strokeWidth="0.5" opacity="0.4"/>
-                  <circle cx="18" cy="18" r="6" fill="none" stroke="#f0d080" strokeWidth="0.7" opacity="0.5"/>
+                  <circle cx="18" cy="18" r="10" fill="none" stroke="#c9963a" strokeWidth="0.5" opacity="0.4" />
+                  <circle cx="18" cy="18" r="6" fill="none" stroke="#f0d080" strokeWidth="0.7" opacity="0.5" />
                 </svg>
                 <div style={{
                   position: "absolute", inset: 0,
@@ -155,46 +155,8 @@ const NavBar = () => {
                     borderRadius: "50%",
                     background: "radial-gradient(circle, #ffd700, #c9963a)",
                     animation: "goldPulse 2.5s ease-in-out infinite",
-                  }}/>
+                  }} />
                 </div>
-              </div>
-
-              {/* Text wordmark */}
-              <div style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
-                <div style={{ display: "flex", alignItems: "baseline", gap: "1px" }}>
-                  <span style={{
-                    fontFamily: "'Cormorant Garamond', Georgia, serif",
-                    fontWeight: 700,
-                    fontSize: "30px",
-                    color: "#ffffff",
-                    letterSpacing: "-0.02em",
-                    lineHeight: 1,
-                  }}>T</span>
-                  <span style={{
-                    fontFamily: "'Cormorant Garamond', Georgia, serif",
-                    fontWeight: 700,
-                    fontSize: "30px",
-                    letterSpacing: "0.04em",
-                    lineHeight: 1,
-                    background: "linear-gradient(90deg, #c9963a 0%, #ffd700 30%, #fff8dc 50%, #ffd700 70%, #c9963a 100%)",
-                    backgroundSize: "200% auto",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                    animation: "shimmerFlow 4s linear infinite",
-                  }}>ONOY</span>
-                </div>
-                <span style={{
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontWeight: 300,
-                  fontSize: "7.5px",
-                  letterSpacing: "0.38em",
-                  color: "#c9963a",
-                  opacity: 0.65,
-                  textTransform: "uppercase",
-                  marginTop: "2px",
-                  paddingLeft: "1px",
-                }}>Portfolio</span>
               </div>
             </div>
           </Link>
@@ -246,7 +208,7 @@ const NavBar = () => {
                 background: "#4ade80",
                 boxShadow: "0 0 6px rgba(74,222,128,0.6)",
                 animation: "goldPulse 2s ease-in-out infinite",
-              }}/>
+              }} />
               <span style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: "11px",
@@ -283,7 +245,7 @@ const NavBar = () => {
                   position: "relative", zIndex: 1,
                   fontSize: "17px",
                   color: "#09070f",
-                }}/>
+                }} />
               </button>
             </Link>
           </div>
@@ -316,10 +278,10 @@ const NavBar = () => {
                 transform: isMenuOpen
                   ? i === 0 ? "rotate(45deg) translate(4.5px, 4.5px)"
                     : i === 2 ? "rotate(-45deg) translate(4.5px, -4.5px)"
-                    : "scaleX(0)"
+                      : "scaleX(0)"
                   : "none",
                 opacity: isMenuOpen && i === 1 ? 0 : 1,
-              }}/>
+              }} />
             ))}
           </button>
         </div>
@@ -362,7 +324,7 @@ const NavBar = () => {
                   top: 0, left: 0, right: 0,
                   height: "2px",
                   background: "linear-gradient(90deg, transparent, #c9963a 25%, #ffd700 50%, #c9963a 75%, transparent)",
-                }}/>
+                }} />
 
                 {/* Logo */}
                 <div style={{ marginBottom: "2.5rem" }}>
@@ -389,7 +351,7 @@ const NavBar = () => {
                   }}>Portfolio</p>
                 </div>
 
-                <div style={{ height: "1px", background: "rgba(184,134,11,0.1)", marginBottom: "2rem" }}/>
+                <div style={{ height: "1px", background: "rgba(184,134,11,0.1)", marginBottom: "2rem" }} />
 
                 {/* Nav links */}
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, flex: 1 }}>
@@ -430,7 +392,7 @@ const NavBar = () => {
                           <MdArrowRightAlt className="marrow" style={{
                             fontSize: "18px", color: "#ffd700",
                             opacity: 0, transition: "opacity 0.3s",
-                          }}/>
+                          }} />
                         </div>
                       </Link>
                     </motion.li>
@@ -446,7 +408,7 @@ const NavBar = () => {
                       borderRadius: "50%",
                       background: "#4ade80",
                       boxShadow: "0 0 6px rgba(74,222,128,0.5)",
-                    }}/>
+                    }} />
                     <span style={{
                       fontFamily: "'DM Sans', sans-serif",
                       fontSize: "11px",
@@ -461,7 +423,9 @@ const NavBar = () => {
                       alignItems: "center",
                       justifyContent: "center",
                       gap: "8px",
-                      width: "100%",
+                      width: "auto",           
+                      paddingLeft: "24px",     
+                      paddingRight: "24px",
                       height: "50px",
                       borderRadius: "12px",
                       border: "none",
@@ -476,7 +440,7 @@ const NavBar = () => {
                         textTransform: "uppercase",
                         color: "#09070f",
                       }}>Hire Me</span>
-                      <MdArrowRightAlt style={{ position: "relative", zIndex: 1, fontSize: "18px", color: "#09070f" }}/>
+                      <MdArrowRightAlt style={{ position: "relative", zIndex: 1, fontSize: "18px", color: "#09070f" }} />
                     </button>
                   </Link>
                 </div>
