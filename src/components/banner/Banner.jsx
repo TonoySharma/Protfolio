@@ -93,7 +93,7 @@ export default function Banner() {
                 alt="Profile"
                 layout="fill"
                 objectFit="cover"
-                className="grayscale-[20%] hover:grayscale-0 transition-all duration-500 border border-purple-400"
+                className="grayscale-[20%] hover:grayscale-0 transition-all duration-500 border-2 border-purple-400 rounded"
                 priority
               />
 
