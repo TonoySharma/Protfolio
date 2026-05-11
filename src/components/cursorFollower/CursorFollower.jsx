@@ -70,18 +70,18 @@ const CursorFollower = () => {
   return (
     <>
       <style>{`
-        @keyframes goldSpin {
+        @keyframes blueSpin {
           from { transform: translate(-50%, -50%) rotate(0deg); }
           to   { transform: translate(-50%, -50%) rotate(360deg); }
         }
-        @keyframes goldPulseRing {
+        @keyframes bluePulseRing {
           0%   { transform: translate(-50%, -50%) scale(1);   opacity: 0.7; }
           100% { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
         }
         * { cursor: none !important; }
       `}</style>
 
-      {/* ── Dust trail ── */}
+      {/* ── Dust trail (Cyan/Blue) ── */}
       {trail.map((point, i) => (
         <div
           key={point.id}
@@ -92,8 +92,8 @@ const CursorFollower = () => {
             width: `${6 - i}px`,
             height: `${6 - i}px`,
             borderRadius: "50%",
-            background: `radial-gradient(circle, #ffd700, #c9963a)`,
-            opacity: (1 - i / 6) * 0.35,
+            background: `radial-gradient(circle, #00f2ff, #0066ff)`,
+            opacity: (1 - i / 6) * 0.4,
             transform: "translate(-50%, -50%)",
             pointerEvents: "none",
             zIndex: 9995,
@@ -102,7 +102,7 @@ const CursorFollower = () => {
         />
       ))}
 
-      {/* ── Outer ring ── */}
+      {/* ── Outer ring (Electric Blue) ── */}
       <motion.div
         style={{
           position: "fixed",
@@ -117,7 +117,7 @@ const CursorFollower = () => {
         }}
         className="hidden md:block"
       >
-        {/* Spinning dashed gold ring */}
+        {/* Spinning dashed blue ring */}
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
@@ -126,7 +126,7 @@ const CursorFollower = () => {
             height: isHovering ? "52px" : isClicking ? "28px" : "38px",
             borderRadius: "50%",
             border: "1.2px dashed",
-            borderColor: isHovering ? "#ffd700" : "rgba(201,150,58,0.7)",
+            borderColor: isHovering ? "#00f2ff" : "rgba(0, 162, 255, 0.6)",
             transition: "width 0.25s ease, height 0.25s ease, border-color 0.25s ease",
             display: "flex",
             alignItems: "center",
@@ -140,7 +140,7 @@ const CursorFollower = () => {
           inset: "6px",
           borderRadius: "50%",
           border: "0.8px solid",
-          borderColor: isHovering ? "rgba(255,215,0,0.5)" : "rgba(201,150,58,0.3)",
+          borderColor: isHovering ? "rgba(0, 242, 255, 0.4)" : "rgba(0, 102, 255, 0.2)",
           transition: "border-color 0.25s ease, inset 0.25s ease",
         }}/>
 
@@ -151,8 +151,8 @@ const CursorFollower = () => {
             top: "50%", left: "50%",
             width: "52px", height: "52px",
             borderRadius: "50%",
-            border: "1px solid rgba(255,215,0,0.5)",
-            animation: "goldPulseRing 1s ease-out infinite",
+            border: "1px solid rgba(0, 242, 255, 0.5)",
+            animation: "bluePulseRing 1s ease-out infinite",
           }}/>
         )}
 
@@ -164,11 +164,12 @@ const CursorFollower = () => {
               position: "absolute",
               top: "50%", left: "50%",
               width: "4px", height: "4px",
-              background: "#ffd700",
+              background: "#00f2ff",
               borderRadius: "1px",
               opacity: isHovering ? 1 : 0.5,
               transform: `translate(-50%, -50%) rotate(${deg + 45}deg) translateY(-${isHovering ? 28 : 20}px)`,
               transition: "all 0.25s ease",
+              boxShadow: "0 0 8px #00f2ff",
             }}
           />
         ))}
@@ -194,10 +195,10 @@ const CursorFollower = () => {
           position: "absolute",
           top: "50%", left: "50%",
           transform: "translate(-50%, -50%)",
-          width: isHovering ? "18px" : "12px",
-          height: isHovering ? "18px" : "12px",
+          width: isHovering ? "22px" : "14px",
+          height: isHovering ? "22px" : "14px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(255,215,0,0.35) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(0, 242, 255, 0.35) 0%, transparent 70%)",
           transition: "all 0.2s ease",
         }}/>
 
@@ -206,13 +207,13 @@ const CursorFollower = () => {
           animate={{ scale: isClicking ? 0.4 : isHovering ? 1.5 : 1 }}
           transition={{ type: "spring", stiffness: 400, damping: 20 }}
           style={{
-            width: "5px",
-            height: "5px",
+            width: "6px",
+            height: "6px",
             borderRadius: "50%",
-            background: "radial-gradient(circle, #fff8dc 0%, #ffd700 50%, #c9963a 100%)",
+            background: "radial-gradient(circle, #e0ffff 0%, #00f2ff 50%, #0066ff 100%)",
             boxShadow: isHovering
-              ? "0 0 10px 3px rgba(255,215,0,0.6)"
-              : "0 0 6px 1px rgba(255,215,0,0.3)",
+              ? "0 0 12px 4px rgba(0, 242, 255, 0.7)"
+              : "0 0 8px 1px rgba(0, 242, 255, 0.4)",
           }}
         />
       </motion.div>

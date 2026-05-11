@@ -71,34 +71,57 @@ export default function Banner() {
           </div>
         </div>
 
-        {/* RIGHT SIDE */}
-        <div className="flex items-center justify-center md:justify-end">
+        {/* RIGHT SIDE (Sudhu Image Component update kora hoyeche) */}
+        <div className="flex items-center justify-center lg:justify-end relative">
+          
+          {/* Main Container */}
           <motion.div
-            className="relative w-[300px] h-[360px] md:w-[360px] md:h-[420px] rounded-[30px] p-[2px] bg-gradient-to-br from-violet-500/40 to-cyan-500/30 shadow-2xl"
-            initial={{ rotate: 8, scale: 0.95 }}
-            whileHover={{
-              rotate: 0,
-              scale: 1,
-            }}
-            transition={{
-              type: "spring",
-              stiffness: 140,
-              damping: 15,
-            }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative flex items-center justify-center"
           >
-            <div className="w-full h-full rounded-[28px] overflow-hidden bg-[#030014]">
+            {/* Pulsing Gradient Backglow */}
+            <motion.div
+              animate={{
+                scale: [1, 1.05, 1],
+                opacity: [0.5, 0.8, 0.5],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute w-[110%] h-[110%] bg-gradient-to-tr from-violet-600 to-cyan-400 blur-3xl rounded-full opacity-60"
+            />
 
-              <Image
-                src="/tonoy.png"
-                alt="Profile"
-                layout="fill"
-                objectFit="cover"
-                className="grayscale-[20%] hover:grayscale-0 transition-all duration-500 border-2 border-purple-500 rounded"
-                priority
+            {/* Circular Border & Image */}
+            <div className="relative w-[320px] h-[320px] md:w-[380px] md:h-[380px] rounded-full p-[2px] bg-gradient-to-tr from-violet-500 via-cyan-400 to-blue-500 shadow-[0_0_40px_-10px_rgba(139,92,246,0.6)]">
+              
+              {/* Spinning Overlay Ring (Cyber Effect) */}
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-[-10px] rounded-full border-2 border-dashed border-violet-500/30 pointer-events-none"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-violet-900/30 via-transparent to-transparent" />
+              <div className="w-full h-full rounded-full overflow-hidden bg-[#030014] relative">
+                {/* Final Image Component */}
+                <Image
+                  src="/tonoy.png"
+                  alt="Tonoy"
+                  fill
+                  className="object-cover object-top scale-105"
+                  priority
+                />
+                
+                {/* Subtle Inner Overlay for blend */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-violet-900/30" />
+              </div>
             </div>
+
+            {/* Outer Static Ring */}
+            <div className="absolute inset-[-20px] rounded-full border border-violet-500/10 pointer-events-none" />
           </motion.div>
         </div>
 

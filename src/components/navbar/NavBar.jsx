@@ -413,8 +413,8 @@ const NavBar = () => {
                       fontFamily: "'DM Sans', sans-serif",
                       fontSize: "11px",
                       color: "rgba(255,255,255,0.3)",
-                      letterSpacing: "0.08em",
-                    }}>Available for freelance</span>
+                      letterSpacing: "0.06em",
+                    }}>Available</span>
                   </div>
 
                   <Link href="/contact" onClick={() => setIsMenuOpen(false)} style={{ textDecoration: "none", display: "block" }}>
@@ -423,8 +423,8 @@ const NavBar = () => {
                       alignItems: "center",
                       justifyContent: "center",
                       gap: "8px",
-                      width: "auto",           
-                      paddingLeft: "24px",     
+                      width: "auto",
+                      paddingLeft: "24px",
                       paddingRight: "24px",
                       height: "50px",
                       borderRadius: "12px",
