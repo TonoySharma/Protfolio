@@ -43,10 +43,10 @@ const ContactSectionPage = () => {
 
     // Replace these with your actual EmailJS credentials
     emailjs.sendForm(
-      "YOUR_SERVICE_ID", 
-      "YOUR_TEMPLATE_ID", 
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID, 
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, 
       formRef.current, 
-      "YOUR_PUBLIC_KEY"
+      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
     )
     .then(() => {
       setLoading(false);

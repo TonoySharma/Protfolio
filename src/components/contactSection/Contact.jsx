@@ -3,6 +3,8 @@ import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { FiPhone, FiMail, FiMapPin, FiArrowRight, FiCheckCircle, FiLoader } from "react-icons/fi";
 import emailjs from "@emailjs/browser"; 
+
+
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
