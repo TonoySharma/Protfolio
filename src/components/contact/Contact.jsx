@@ -2,7 +2,7 @@
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { FiPhone, FiMail, FiMapPin, FiArrowRight, FiCheckCircle, FiLoader } from "react-icons/fi";
-import emailjs from "@emailjs/browser"; // Install this: npm install @emailjs/browser
+
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -37,26 +37,32 @@ const ContactSectionPage = () => {
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    // Replace these with your actual EmailJS credentials
-    emailjs.sendForm(
-      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID, 
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, 
-      formRef.current, 
-      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-    )
-    .then(() => {
+    const formData = new FormData(formRef.current);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (res.ok) {
+        setLoading(false);
+        setSent(true);
+        formRef.current.reset();
+        setTimeout(() => setSent(false), 5000);
+      } else {
+        throw new Error("Failed to send");
+      }
+    } catch (error) {
       setLoading(false);
-      setSent(true);
-      formRef.current.reset();
-      setTimeout(() => setSent(false), 5000); // Reset success state after 5s
-    }, (error) => {
-      setLoading(false);
-      alert("Something went wrong. Please try again.");
-    });
+      alert("Something went wrong!");
+    }
   };
 
   return (
@@ -93,15 +99,15 @@ const ContactSectionPage = () => {
       `}</style>
 
       <section style={{ position: "relative", overflow: "hidden", background: "#05030a", minHeight: "100vh", display: "flex", alignItems: "center", padding: "80px 24px" }}>
-        
+
         {/* Background Gradients & Grid remain the same... */}
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(184,134,11,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(184,134,11,0.04) 1px, transparent 1px)", backgroundSize: "48px 48px", pointerEvents: "none" }}/>
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(184,134,11,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(184,134,11,0.04) 1px, transparent 1px)", backgroundSize: "48px 48px", pointerEvents: "none" }} />
 
         <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 480px), 1fr))", gap: "48px", position: "relative", zIndex: 1 }}>
 
           {/* LEFT — Form */}
           <motion.div {...fadeUp(0)} style={{ background: "rgba(255,255,255,0.025)", backdropFilter: "blur(24px)", borderRadius: "28px", border: "1px solid rgba(184,134,11,0.15)", padding: "40px", boxShadow: "0 24px 80px rgba(0,0,0,0.5)" }}>
-            
+
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "40px", marginBottom: "20px", color: "#ffd700" }}>Let&apos;s Work Together</h2>
 
             <form ref={formRef} onSubmit={sendEmail} style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
@@ -127,7 +133,7 @@ const ContactSectionPage = () => {
                   {!loading && !sent && <FiArrowRight />}
                 </span>
               </button>
-              
+
               {sent && (
                 <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ color: "#ffd700", fontSize: "12px", textAlign: "center", marginTop: "10px" }}>
                   Message sent successfully! Check your email.
@@ -139,7 +145,7 @@ const ContactSectionPage = () => {
           {/* RIGHT — Contact Info */}
           <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             <h3 style={{ color: "white", fontSize: "24px", marginBottom: "10px" }}>Contact Details</h3>
-            
+
             {contactItems.map(({ icon, label, value, href }, i) => (
               <motion.div key={label} {...fadeUp(0.1 + i * 0.1)}>
                 <a href={href} target="_blank" rel="noopener noreferrer" className="contact-card" style={{ textDecoration: "none" }}>
