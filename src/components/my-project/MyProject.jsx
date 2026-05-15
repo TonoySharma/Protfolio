@@ -42,6 +42,33 @@ const projects = [
     githubLink: "https://github.com/TonoySharma/assignment-6",
 
   },
+   {
+    title: "Job Application",
+    description: "Premium tile browsing platform with server-side search and OAuth.",
+    image: "/project-7.png",
+    tags: ["REACT", "REACT ICON", "DAISYUI"],
+    liveLink: "https://stellular-parfait-8138d1.netlify.app/",
+    githubLink: "#",
+
+  },
+  {
+    title: "World-on-the-Go",
+    description: "Premium tile browsing platform with server-side search and OAuth.",
+    image: "/project-8.png",
+    tags: ["REACT", "REACT ICON", "DAISYUI", "Tailwind CSS", "JavaScript (ES6)"],
+    liveLink: "https://admirable-sfogliatella-0bac39.netlify.app/",
+    githubLink: "https://github.com/TonoySharma/World-on-the-Go",
+
+  },
+  {
+    title: "Dream 11 Cricket Team",
+    description: "Premium tile browsing platform with server-side search and OAuth.",
+    image: "/project-9.png",
+    tags: ["REACT", "REACT ICON", "DAISYUI"],
+    liveLink: "https://bpl-dream-player-11.netlify.app/",
+    githubLink: "https://github.com/TonoySharma/BPL-Dream",
+
+  },
 
 ];
 
