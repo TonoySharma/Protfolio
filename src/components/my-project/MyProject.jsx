@@ -69,6 +69,15 @@ const projects = [
     githubLink: "https://github.com/TonoySharma/BPL-Dream",
 
   },
+  {
+    title: "Car Rental",
+    description: "Premium tile browsing platform with server-side search and OAuth.",
+    image: "/project-10.png",
+    tags: ["REACT", "REACT ICON", "Next.js", "Tailwind CSS", "JavaScript (ES6), backend with Node.js and Express.js"],
+    liveLink: "https://drive-fleet-five.vercel.app/",
+    githubLink: "https://github.com/TonoySharma/DriveFleet",
+
+  },
 
 ];
 
@@ -224,7 +233,7 @@ const ProjectSection = () => {
                 {/* Content Area */}
                 <div className="flex flex-col flex-grow">
                   <div className="flex flex-wrap gap-1.5 mb-3">
-                    {project.tags.slice(0, 3).map((tag, i) => (
+                    {project.tags.map((tag, i) => (
                       <span key={i} className="text-[9px] px-2 py-0.5 bg-purple-500/10 border border-purple-500/20 rounded-md text-purple-300 font-bold uppercase">
                         {tag}
                       </span>
