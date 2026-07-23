@@ -3,6 +3,7 @@ import "./globals.css";
 import NavBar from "@/components/navbar/NavBar";
 import "animate.css";
 import CursorFollower from "@/components/cursorFollower/CursorFollower";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -79,7 +80,9 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         <NavBar />
         <CursorFollower />
+        <SmoothScroll>
         <main>{children}</main>
+        </SmoothScroll>
       </body>
     </html>
   );

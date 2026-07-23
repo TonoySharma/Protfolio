@@ -6,24 +6,25 @@ import { FaUserGraduate } from "react-icons/fa";
 
 const EducationSection = () => {
   const educationData = [
+     {
+      year: "2021 - 2022",
+      title: "Secondary School Certificate",
+      institution: "Ghatail Govt. Pilot High School",
+      description: "Commerce background - GPA 4.14 / 5.00",
+    },
     {
       year: "2023 - 2024",
       title: "Higher Secondary Certificate",
       institution: "Ghatail Cantonment Public School & College",
       description: "Commerce background - GPA 4.84 / 5.00",
     },
-    {
-      year: "2017 - 2022",
-      title: "Secondary School Certificate",
-      institution: "Ghatail Govt. Pilot High School",
-      description: "Commerce background - GPA 4.14 / 5.00",
-    },
+  
     {
       year: "2026",
       title: "Full Stack Developer",
       institution: "Web Development Course With Programming Hero",
       description:
-        "Foundational course in HTML, Tailwind CSS, Next.js, React, MongoDB, and JavaScript.",
+        "Foundational course in  Next.js, JavaScript, TypeScript, React, Node.js, MongoDB,  HTML, Tailwind CSS,.",
     },
   ];
 

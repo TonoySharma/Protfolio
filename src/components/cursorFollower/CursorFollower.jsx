@@ -1,138 +1,128 @@
-"use client";
+'use client';
 
-import { useEffect, useRef } from "react";
+import React, { useEffect, useState } from 'react';
+import { motion, useSpring, useMotionValue } from 'framer-motion';
 
-export default function CursorFollower() {
-  const dotRef = useRef(null);
-  const ringRef = useRef(null);
+const Cursor = () => {
+  const [cursorState, setCursorState] = useState('default'); // 'default' | 'hover' | 'text'
+
+  // Spring physics for ultra-smooth buttery feel
+  const mouseX = useMotionValue(-100);
+  const mouseY = useMotionValue(-100);
+
+  const springConfig = { damping: 28, stiffness: 300, mass: 0.5 };
+  const smoothX = useSpring(mouseX, springConfig);
+  const smoothY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
-    if (window.innerWidth < 768) return;
-
-    const mouse = {
-      x: window.innerWidth / 2,
-      y: window.innerHeight / 2,
+    const handleMouseMove = (e) => {
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
     };
 
-    const pos = {
-      x: mouse.x,
-      y: mouse.y,
-    };
-
-    let animationFrame;
-
-    const move = (e) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-    };
-
-    const animate = () => {
-      // Smoothness (0.12 = slower, 0.2 = faster)
-      pos.x += (mouse.x - pos.x) * 0.14;
-      pos.y += (mouse.y - pos.y) * 0.14;
-
-      if (dotRef.current) {
-        dotRef.current.style.left = `${mouse.x}px`;
-        dotRef.current.style.top = `${mouse.y}px`;
+    const handleMouseOver = (e) => {
+      const target = e.target;
+      
+      // Check for buttons, links, or clickable elements
+      if (
+        target.tagName === 'BUTTON' ||
+        target.tagName === 'A' ||
+        target.closest('button') ||
+        target.closest('a') ||
+        target.getAttribute('role') === 'button'
+      ) {
+        setCursorState('hover');
+      } else if (
+        target.tagName === 'H1' ||
+        target.tagName === 'H2' ||
+        target.tagName === 'H3' ||
+        target.tagName === 'P' ||
+        target.tagName === 'SPAN'
+      ) {
+        setCursorState('text');
+      } else {
+        setCursorState('default');
       }
-
-      if (ringRef.current) {
-        ringRef.current.style.left = `${pos.x}px`;
-        ringRef.current.style.top = `${pos.y}px`;
-      }
-
-      animationFrame = requestAnimationFrame(animate);
     };
 
-    const enter = () => {
-      if (!ringRef.current) return;
-
-      ringRef.current.style.width = "80px";
-      ringRef.current.style.height = "80px";
-      ringRef.current.style.background = "rgba(6,182,212,.12)";
-      ringRef.current.style.borderColor = "#22d3ee";
-    };
-
-    const leave = () => {
-      if (!ringRef.current) return;
-
-      ringRef.current.style.width = "42px";
-      ringRef.current.style.height = "42px";
-      ringRef.current.style.background = "transparent";
-      ringRef.current.style.borderColor = "rgba(34,211,238,.5)";
-    };
-
-    const clickDown = () => {
-      ringRef.current.style.transform =
-        "translate(-50%,-50%) scale(.8)";
-    };
-
-    const clickUp = () => {
-      ringRef.current.style.transform =
-        "translate(-50%,-50%) scale(1)";
-    };
-
-    const hoverElements = document.querySelectorAll(
-      "a,button,input,textarea,select,[data-cursor]"
-    );
-
-    hoverElements.forEach((el) => {
-      el.addEventListener("mouseenter", enter);
-      el.addEventListener("mouseleave", leave);
-    });
-
-    window.addEventListener("mousemove", move);
-    window.addEventListener("mousedown", clickDown);
-    window.addEventListener("mouseup", clickUp);
-
-    animate();
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseover', handleMouseOver);
 
     return () => {
-      cancelAnimationFrame(animationFrame);
-
-      window.removeEventListener("mousemove", move);
-      window.removeEventListener("mousedown", clickDown);
-      window.removeEventListener("mouseup", clickUp);
-
-      hoverElements.forEach((el) => {
-        el.removeEventListener("mouseenter", enter);
-        el.removeEventListener("mouseleave", leave);
-      });
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseover', handleMouseOver);
     };
-  }, []);
+  }, [mouseX, mouseY]);
 
   return (
-    <>
-      {/* Ring */}
-      <div
-        ref={ringRef}
-        className="pointer-events-none fixed left-0 top-0 z-[9999] hidden h-[42px] w-[42px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-400/60 transition-[width,height,background,border-color,transform] duration-300 ease-out md:block"
-      />
-
-      {/* Glow */}
-      <div
-        className="pointer-events-none fixed left-0 top-0 z-[9998] hidden h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/15 blur-3xl md:block"
+    <div className="pointer-events-none fixed inset-0 z-[99999] overflow-hidden">
+      {/* 1. Core Glowing Neon Dot */}
+      <motion.div
+        className="fixed top-0 left-0 w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-[0_0_15px_#06b6d4]"
         style={{
-          left: 0,
-          top: 0,
+          x: smoothX,
+          y: smoothY,
+          translateX: '-50%',
+          translateY: '-50%',
         }}
-        ref={(el) => {
-          if (!el) return;
+        animate={{
+          scale: cursorState === 'hover' ? 0 : 1,
+          opacity: cursorState === 'hover' ? 0 : 1,
+        }}
+        transition={{ duration: 0.2 }}
+      />
 
-          const moveGlow = (e) => {
-            el.style.left = e.clientX + "px";
-            el.style.top = e.clientY + "px";
-          };
-
-          window.onmousemove = moveGlow;
+      {/* 2. Main Fluid Aurora Ring */}
+      <motion.div
+        className="fixed top-0 left-0 rounded-full bg-gradient-to-tr from-violet-600/30 via-cyan-500/20 to-purple-500/40 backdrop-blur-[3px] border border-white/20"
+        style={{
+          x: smoothX,
+          y: smoothY,
+          translateX: '-50%',
+          translateY: '-50%',
+        }}
+        animate={{
+          width: cursorState === 'hover' ? 64 : cursorState === 'text' ? 24 : 40,
+          height: cursorState === 'hover' ? 64 : cursorState === 'text' ? 24 : 40,
+          borderColor:
+            cursorState === 'hover'
+              ? 'rgba(168, 85, 247, 0.8)'
+              : cursorState === 'text'
+              ? 'rgba(6, 182, 212, 0.5)'
+              : 'rgba(255, 255, 255, 0.15)',
+          boxShadow:
+            cursorState === 'hover'
+              ? '0 0 35px rgba(168, 85, 247, 0.5), inset 0 0 15px rgba(168, 85, 247, 0.3)'
+              : '0 0 20px rgba(6, 182, 212, 0.15)',
+          background:
+            cursorState === 'hover'
+              ? 'radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, rgba(6, 182, 212, 0.15) 100%)'
+              : 'radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(3, 0, 20, 0) 70%)',
+        }}
+        transition={{
+          type: 'spring',
+          stiffness: 350,
+          damping: 25,
         }}
       />
 
-      {/* Dot */}
-      <div
-        ref={dotRef}
-        className="pointer-events-none fixed left-0 top-0 z-[10000] hidden h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400 shadow-[0_0_25px_#22d3ee] md:block"
+      {/* 3. Outer Ambient Halo Trail */}
+      <motion.div
+        className="fixed top-0 left-0 w-24 h-24 rounded-full bg-violet-600/10 blur-2xl"
+        style={{
+          x: smoothX,
+          y: smoothY,
+          translateX: '-50%',
+          translateY: '-50%',
+        }}
+        animate={{
+          scale: cursorState === 'hover' ? 1.5 : 1,
+          opacity: cursorState === 'hover' ? 0.8 : 0.4,
+        }}
+        transition={{ duration: 0.4 }}
       />
-    </>
+    </div>
   );
-}
+};
+
+export default Cursor;
