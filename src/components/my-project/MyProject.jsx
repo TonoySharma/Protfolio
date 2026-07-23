@@ -6,63 +6,6 @@ import { FaGithub } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const projects = [
-  
-    {
-      title: "SkillSphere",
-      description: "An interactive skill-sharing platform enabling users to explore courses, manage learning paths, and connect with mentors seamlessly.",
-      image: "/project-5.png",
-      tags: ["Next.js", "MongoDB", "HeroUI", "Tailwind CSS"],
-      liveLink: "https://skill-sphere-assignment-8.vercel.app/",
-      githubLink: "https://github.com/TonoySharma/-SkillSphere--assignment-8",
-    },
-    {
-      title: "Keep Keeper",
-      description: "A lightweight, intuitive note-taking web application designed for organizing daily tasks, ideas, and priority lists effortlessly.",
-      image: "/project-6.png",
-      tags: ["React", "DaisyUI", "Tailwind CSS", "React Icons"],
-      liveLink: "https://cheery-longma-bd48fb.netlify.app/",
-      githubLink: "https://github.com/TonoySharma/assignment-7-keep-keeper",
-    },
-    {
-      title: "Book Vibe",
-      description: "A modern book discovery app allowing readers to browse categories, track reading lists, and view detailed reviews.",
-      image: "/project-3.png",
-      tags: ["React", "DaisyUI", "Tailwind CSS", "React Icons"],
-      liveLink: "https://peaceful-sorbet-f2975e.netlify.app/",
-      githubLink: "https://github.com/TonoySharma/Book-Vaibe",
-    },
-    {
-      title: "DigiTools",
-      description: "A comprehensive digital utility hub offering essential web tools with a sleek layout and fast client-side performance.",
-      image: "/project-2.png",
-      tags: ["React", "DaisyUI", "Tailwind CSS", "React Icons"],
-      liveLink: "https://astonishing-hamster-37360d.netlify.app/",
-      githubLink: "https://github.com/TonoySharma/assignment-6",
-    },
-    {
-      title: "Job Application Portal",
-      description: "A streamlined job portal helping applicants discover listings, filter vacancies, and track their application pipeline.",
-      image: "/project-7.png",
-      tags: ["React", "DaisyUI", "Tailwind CSS", "React Icons"],
-      liveLink: "https://stellular-parfait-8138d1.netlify.app/",
-      githubLink: "#",
-    },
-    {
-      title: "World-on-the-Go",
-      description: "An immersive travel directory presenting destination insights, itinerary guides, and dynamic filtering for travelers.",
-      image: "/project-8.png",
-      tags: ["React", "JavaScript (ES6)", "DaisyUI", "Tailwind CSS", "React Icons"],
-      liveLink: "https://admirable-sfogliatella-0bac39.netlify.app/",
-      githubLink: "https://github.com/TonoySharma/World-on-the-Go",
-    },
-    {
-      title: "Dream 11 Cricket Team",
-      description: "An engaging fantasy cricket manager where users can select players within a budget limit and assemble custom squad combinations.",
-      image: "/project-9.png",
-      tags: ["React", "DaisyUI", "Tailwind CSS", "React Icons"],
-      liveLink: "https://bpl-dream-player-11.netlify.app/",
-      githubLink: "https://github.com/TonoySharma/BPL-Dream",
-    },
     {
       title: "DriveFleet (Car Rental)",
       description: "A full-stack vehicle booking platform featuring real-time vehicle availability, flexible reservation options, and backend API integration.",
