@@ -1,2 +1,14 @@
 @import "tailwindcss";
 @import "@heroui/styles"; 
+
+html,
+body {
+  cursor: none;
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    cursor: auto;
+  }
+}

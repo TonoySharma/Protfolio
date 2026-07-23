@@ -1,224 +1,138 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
-import { motion, useSpring, useMotionValue } from "framer-motion";
 
-const CursorFollower = () => {
-  const [isHovering, setIsHovering] = useState(false);
-  const [isClicking, setIsClicking] = useState(false);
-  const [trail, setTrail] = useState([]);
-  const trailRef = useRef([]);
-  const frameRef = useRef(null);
+import { useEffect, useRef } from "react";
 
-  const rawX = useMotionValue(0);
-  const rawY = useMotionValue(0);
-
-  const outerX = useSpring(rawX, { stiffness: 120, damping: 22, mass: 0.6 });
-  const outerY = useSpring(rawY, { stiffness: 120, damping: 22, mass: 0.6 });
-
-  const innerX = useSpring(rawX, { stiffness: 600, damping: 30 });
-  const innerY = useSpring(rawY, { stiffness: 600, damping: 30 });
+export default function CursorFollower() {
+  const dotRef = useRef(null);
+  const ringRef = useRef(null);
 
   useEffect(() => {
-    const onMove = (e) => {
-      rawX.set(e.clientX);
-      rawY.set(e.clientY);
+    if (window.innerWidth < 768) return;
 
-      trailRef.current = [
-        { x: e.clientX, y: e.clientY, id: Date.now() },
-        ...trailRef.current.slice(0, 5),
-      ];
-      if (frameRef.current) cancelAnimationFrame(frameRef.current);
-      frameRef.current = requestAnimationFrame(() => {
-        setTrail([...trailRef.current]);
-      });
+    const mouse = {
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2,
     };
 
-    const onDown = () => setIsClicking(true);
-    const onUp = () => setIsClicking(false);
+    const pos = {
+      x: mouse.x,
+      y: mouse.y,
+    };
 
-    const onEnter = (e) => {
-      if (
-        e.target.closest("a, button, [role='button'], input, textarea, select, label, [data-cursor='pointer']")
-      ) {
-        setIsHovering(true);
+    let animationFrame;
+
+    const move = (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    };
+
+    const animate = () => {
+      // Smoothness (0.12 = slower, 0.2 = faster)
+      pos.x += (mouse.x - pos.x) * 0.14;
+      pos.y += (mouse.y - pos.y) * 0.14;
+
+      if (dotRef.current) {
+        dotRef.current.style.left = `${mouse.x}px`;
+        dotRef.current.style.top = `${mouse.y}px`;
       }
-    };
-    const onLeave = (e) => {
-      if (
-        e.target.closest("a, button, [role='button'], input, textarea, select, label, [data-cursor='pointer']")
-      ) {
-        setIsHovering(false);
+
+      if (ringRef.current) {
+        ringRef.current.style.left = `${pos.x}px`;
+        ringRef.current.style.top = `${pos.y}px`;
       }
+
+      animationFrame = requestAnimationFrame(animate);
     };
 
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("mousedown", onDown);
-    window.addEventListener("mouseup", onUp);
-    window.addEventListener("mouseover", onEnter);
-    window.addEventListener("mouseout", onLeave);
+    const enter = () => {
+      if (!ringRef.current) return;
+
+      ringRef.current.style.width = "80px";
+      ringRef.current.style.height = "80px";
+      ringRef.current.style.background = "rgba(6,182,212,.12)";
+      ringRef.current.style.borderColor = "#22d3ee";
+    };
+
+    const leave = () => {
+      if (!ringRef.current) return;
+
+      ringRef.current.style.width = "42px";
+      ringRef.current.style.height = "42px";
+      ringRef.current.style.background = "transparent";
+      ringRef.current.style.borderColor = "rgba(34,211,238,.5)";
+    };
+
+    const clickDown = () => {
+      ringRef.current.style.transform =
+        "translate(-50%,-50%) scale(.8)";
+    };
+
+    const clickUp = () => {
+      ringRef.current.style.transform =
+        "translate(-50%,-50%) scale(1)";
+    };
+
+    const hoverElements = document.querySelectorAll(
+      "a,button,input,textarea,select,[data-cursor]"
+    );
+
+    hoverElements.forEach((el) => {
+      el.addEventListener("mouseenter", enter);
+      el.addEventListener("mouseleave", leave);
+    });
+
+    window.addEventListener("mousemove", move);
+    window.addEventListener("mousedown", clickDown);
+    window.addEventListener("mouseup", clickUp);
+
+    animate();
 
     return () => {
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("mousedown", onDown);
-      window.removeEventListener("mouseup", onUp);
-      window.removeEventListener("mouseover", onEnter);
-      window.removeEventListener("mouseout", onLeave);
-      if (frameRef.current) cancelAnimationFrame(frameRef.current);
+      cancelAnimationFrame(animationFrame);
+
+      window.removeEventListener("mousemove", move);
+      window.removeEventListener("mousedown", clickDown);
+      window.removeEventListener("mouseup", clickUp);
+
+      hoverElements.forEach((el) => {
+        el.removeEventListener("mouseenter", enter);
+        el.removeEventListener("mouseleave", leave);
+      });
     };
-  }, [rawX, rawY]);
+  }, []);
 
   return (
     <>
-      <style>{`
-        @keyframes blueSpin {
-          from { transform: translate(-50%, -50%) rotate(0deg); }
-          to   { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-        @keyframes bluePulseRing {
-          0%   { transform: translate(-50%, -50%) scale(1);   opacity: 0.7; }
-          100% { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
-        }
-        * { cursor: none !important; }
-      `}</style>
+      {/* Ring */}
+      <div
+        ref={ringRef}
+        className="pointer-events-none fixed left-0 top-0 z-[9999] hidden h-[42px] w-[42px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-400/60 transition-[width,height,background,border-color,transform] duration-300 ease-out md:block"
+      />
 
-      {/* ── Dust trail (Cyan/Blue) ── */}
-      {trail.map((point, i) => (
-        <div
-          key={point.id}
-          style={{
-            position: "fixed",
-            top: point.y,
-            left: point.x,
-            width: `${6 - i}px`,
-            height: `${6 - i}px`,
-            borderRadius: "50%",
-            background: `radial-gradient(circle, #00f2ff, #0066ff)`,
-            opacity: (1 - i / 6) * 0.4,
-            transform: "translate(-50%, -50%)",
-            pointerEvents: "none",
-            zIndex: 9995,
-            transition: "opacity 0.15s",
-          }}
-        />
-      ))}
-
-      {/* ── Outer ring (Electric Blue) ── */}
-      <motion.div
+      {/* Glow */}
+      <div
+        className="pointer-events-none fixed left-0 top-0 z-[9998] hidden h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/15 blur-3xl md:block"
         style={{
-          position: "fixed",
-          top: 0,
           left: 0,
-          x: outerX,
-          y: outerY,
-          translateX: "-50%",
-          translateY: "-50%",
-          pointerEvents: "none",
-          zIndex: 9998,
-        }}
-        className="hidden md:block"
-      >
-        {/* Spinning dashed blue ring */}
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-          style={{
-            width: isHovering ? "52px" : isClicking ? "28px" : "38px",
-            height: isHovering ? "52px" : isClicking ? "28px" : "38px",
-            borderRadius: "50%",
-            border: "1.2px dashed",
-            borderColor: isHovering ? "#00f2ff" : "rgba(0, 162, 255, 0.6)",
-            transition: "width 0.25s ease, height 0.25s ease, border-color 0.25s ease",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        />
-
-        {/* Solid inner ring */}
-        <div style={{
-          position: "absolute",
-          inset: "6px",
-          borderRadius: "50%",
-          border: "0.8px solid",
-          borderColor: isHovering ? "rgba(0, 242, 255, 0.4)" : "rgba(0, 102, 255, 0.2)",
-          transition: "border-color 0.25s ease, inset 0.25s ease",
-        }}/>
-
-        {/* Pulse ring on hover */}
-        {isHovering && (
-          <div style={{
-            position: "absolute",
-            top: "50%", left: "50%",
-            width: "52px", height: "52px",
-            borderRadius: "50%",
-            border: "1px solid rgba(0, 242, 255, 0.5)",
-            animation: "bluePulseRing 1s ease-out infinite",
-          }}/>
-        )}
-
-        {/* 4 corner diamond ticks */}
-        {[0, 90, 180, 270].map((deg) => (
-          <div
-            key={deg}
-            style={{
-              position: "absolute",
-              top: "50%", left: "50%",
-              width: "4px", height: "4px",
-              background: "#00f2ff",
-              borderRadius: "1px",
-              opacity: isHovering ? 1 : 0.5,
-              transform: `translate(-50%, -50%) rotate(${deg + 45}deg) translateY(-${isHovering ? 28 : 20}px)`,
-              transition: "all 0.25s ease",
-              boxShadow: "0 0 8px #00f2ff",
-            }}
-          />
-        ))}
-      </motion.div>
-
-      {/* ── Inner dot ── */}
-      <motion.div
-        style={{
-          position: "fixed",
           top: 0,
-          left: 0,
-          x: innerX,
-          y: innerY,
-          translateX: "-50%",
-          translateY: "-50%",
-          pointerEvents: "none",
-          zIndex: 9999,
         }}
-        className="hidden md:block"
-      >
-        {/* Glow halo */}
-        <div style={{
-          position: "absolute",
-          top: "50%", left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: isHovering ? "22px" : "14px",
-          height: isHovering ? "22px" : "14px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(0, 242, 255, 0.35) 0%, transparent 70%)",
-          transition: "all 0.2s ease",
-        }}/>
+        ref={(el) => {
+          if (!el) return;
 
-        {/* Core dot */}
-        <motion.div
-          animate={{ scale: isClicking ? 0.4 : isHovering ? 1.5 : 1 }}
-          transition={{ type: "spring", stiffness: 400, damping: 20 }}
-          style={{
-            width: "6px",
-            height: "6px",
-            borderRadius: "50%",
-            background: "radial-gradient(circle, #e0ffff 0%, #00f2ff 50%, #0066ff 100%)",
-            boxShadow: isHovering
-              ? "0 0 12px 4px rgba(0, 242, 255, 0.7)"
-              : "0 0 8px 1px rgba(0, 242, 255, 0.4)",
-          }}
-        />
-      </motion.div>
+          const moveGlow = (e) => {
+            el.style.left = e.clientX + "px";
+            el.style.top = e.clientY + "px";
+          };
+
+          window.onmousemove = moveGlow;
+        }}
+      />
+
+      {/* Dot */}
+      <div
+        ref={dotRef}
+        className="pointer-events-none fixed left-0 top-0 z-[10000] hidden h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400 shadow-[0_0_25px_#22d3ee] md:block"
+      />
     </>
   );
-};
-
-export default CursorFollower;
+}

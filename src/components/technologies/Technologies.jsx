@@ -14,6 +14,7 @@ import {
   SiGithub,
   SiDaisyui,
   SiNetlify,
+  SiTypescript,
 } from "react-icons/si";
 
 import { TbBrandVscode } from "react-icons/tb";
@@ -39,6 +40,11 @@ const skills = [
     name: "JavaScript",
     level: "Advanced",
     icon: <SiJavascript className="text-yellow-300" />,
+  },
+  {
+    name: "TypeScript",
+    level: "Intermediate",
+    icon: <SiTypescript className="text-blue-500" />,
   },
   {
     name: "Node.js",

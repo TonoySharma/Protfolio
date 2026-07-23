@@ -14,6 +14,7 @@ import {
   SiGithub,
   SiDaisyui,
   SiNetlify,
+  SiTypescript,
 } from "react-icons/si";
 
 import { TbBrandVscode } from "react-icons/tb";
@@ -39,6 +40,11 @@ const skills = [
     name: "JavaScript",
     level: "Advanced",
     icon: <SiJavascript className="text-yellow-300" />,
+  },
+  {
+    name: "TypeScript",
+    level: "Intermediate",
+    icon: <SiTypescript className="text-blue-500" />,
   },
   {
     name: "Node.js",
@@ -85,17 +91,17 @@ const skills = [
 const Technologies = () => {
   return (
     <section className="relative overflow-hidden bg-[#030014] py-20 px-4 sm:px-6 lg:px-8">
-      
+
       {/* Background Glow */}
       <div className="absolute top-[-10%] left-[-10%] h-[350px] w-[350px] rounded-full bg-violet-700/20 blur-[120px]" />
-      
+
       <div className="absolute bottom-[-10%] right-[-10%] h-[350px] w-[350px] rounded-full bg-cyan-500/20 blur-[120px]" />
 
       {/* Grid Overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        
+
         {/* Heading */}
         <div className="text-center mb-14">
           <motion.p
@@ -163,7 +169,7 @@ const Technologies = () => {
                 group-hover:shadow-[0_0_30px_rgba(139,92,246,0.18)]
               "
               >
-                
+
                 {/* Top Glow */}
                 <div className="absolute top-0 left-0 h-24 w-24 rounded-full bg-violet-500/10 blur-3xl" />
 

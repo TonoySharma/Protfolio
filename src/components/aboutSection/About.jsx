@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 
 const AboutSectionPage = () => {
   const stats = [
-    { label: "Years of Experience", value: "1" },
-    { label: "Projects Completed", value: "14+" },
-    { label: "GitHub Repos", value: "20+" },
+    { label: "Years of Experience", value: "1+" },
+    { label: "Projects Completed", value: "20+" },
+    { label: "GitHub Repos", value: "30+" },
     { label: "Technologies", value: "10+" },
   ];
 
@@ -48,7 +48,7 @@ const AboutSectionPage = () => {
               transition={{ repeat: Infinity, duration: 4 }}
               className="absolute -bottom-4 -right-2 md:right-10 bg-[#140c1c]/90 backdrop-blur-xl border border-white/10 p-4 md:p-6 rounded-2xl shadow-xl"
             >
-              <h3 className="text-2xl md:text-4xl font-bold text-white">01</h3>
+              <h3 className="text-2xl md:text-4xl font-bold text-white">1+</h3>
               <p className="text-gray-400 text-xs md:text-sm">
                 Year of <br /> Experience
               </p>

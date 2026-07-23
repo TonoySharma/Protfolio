@@ -2,7 +2,6 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useSpring, useInView } from "framer-motion";
 
-// কাউন্টার লজিক কম্পোনেন্ট
 function Counter({ value, isDecimal = false }) {
   const [displayValue, setDisplayValue] = useState(0);
   const ref = useRef(null);
@@ -49,7 +48,7 @@ const Counting = () => {
           {/* ১. Years of Experience */}
           <div className="flex items-center gap-4 justify-center md:justify-start">
             <h3 className="text-5xl md:text-6xl font-bold text-white tracking-tighter">
-              <Counter value={1} />
+              <Counter value={1} />+
             </h3>
             <p className="text-xs md:text-sm text-neutral-400 leading-tight uppercase tracking-widest font-medium">
               Years of <br /> Experience
@@ -59,7 +58,7 @@ const Counting = () => {
           {/* ২. Project Completed */}
           <div className="flex items-center gap-4 justify-center md:justify-start">
             <h3 className="text-5xl md:text-6xl font-bold text-white tracking-tighter">
-              <Counter value={15} />+
+              <Counter value={20} />+
             </h3>
             <p className="text-xs md:text-sm text-neutral-400 leading-tight uppercase tracking-widest font-medium">
               Projects <br /> Completed
@@ -69,7 +68,7 @@ const Counting = () => {
           {/* ৩. GitHub Repos */}
           <div className="flex items-center gap-4 justify-center md:justify-start">
             <h3 className="text-5xl md:text-6xl font-bold text-white tracking-tighter">
-              <Counter value={20} />+
+              <Counter value={30} />+
             </h3>
             <p className="text-xs md:text-sm text-neutral-400 leading-tight uppercase tracking-widest font-medium">
               GitHub Repos
