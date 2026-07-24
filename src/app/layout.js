@@ -4,6 +4,7 @@ import NavBar from "@/components/navbar/NavBar";
 import "animate.css";
 import CursorFollower from "@/components/cursorFollower/CursorFollower";
 import SmoothScroll from "@/components/SmoothScroll";
+import Preloader from "@/components/Preloader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -78,6 +79,7 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <Preloader />
         <NavBar />
         <CursorFollower />
         <SmoothScroll>
