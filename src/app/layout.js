@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://protfolio-wine-two.vercel.app/"),
+  metadataBase: new URL("https://tonoysharma.vercel.app/"),
 
   title: {
     default: "Tonoy Sharma | Full Stack Developer",
@@ -43,7 +43,7 @@ export const metadata = {
     title: "Tonoy Sharma | Full Stack Developer",
     description:
       "Explore my portfolio, projects, technical skills, and development journey.",
-    url: "https://protfolio-wine-two.vercel.app/",
+    url: "https://tonoysharma.vercel.app/",
     siteName: "Tonoy Portfolio",
     images: [
       {
