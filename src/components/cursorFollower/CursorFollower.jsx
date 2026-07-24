@@ -55,7 +55,7 @@ const Cursor = () => {
   }, [mouseX, mouseY]);
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-[99999] overflow-hidden">
+    <div className="pointer-events-none fixed inset-0 z-[99999] overflow-hidden hidden md:block">
       {/* 1. Core Glowing Neon Dot */}
       <motion.div
         className="fixed top-0 left-0 w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-[0_0_15px_#06b6d4]"
