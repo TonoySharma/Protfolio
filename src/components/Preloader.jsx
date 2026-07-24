@@ -8,17 +8,17 @@ export default function Preloader() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // ০ থেকে ১০০ পর্যন্ত কাউন্টার অ্যানিমেশন
+
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          setTimeout(() => setLoading(false), 500); // ১০০% হওয়ার পর হালকা ডিলে
+          setTimeout(() => setLoading(false), 500);
           return 100;
         }
         return prev + 1;
       });
-    }, 20); // লোডিং স্পিড কম-বেশি করতে এই সময় (20ms) চেঞ্জ করতে পারেন
+    }, 20); 
 
     return () => clearInterval(interval);
   }, []);
@@ -28,7 +28,7 @@ export default function Preloader() {
       {loading && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, y: -100 }} // উপর দিয়ে স্মুথলি গায়েব হয়ে যাবে
+          exit={{ opacity: 0, y: -100 }} 
           transition={{ duration: 0.8, ease: "easeInOut" }}
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-neutral-950 text-white font-sans"
         >

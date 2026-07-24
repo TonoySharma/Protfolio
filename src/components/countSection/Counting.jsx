@@ -51,7 +51,7 @@ const Counting = () => {
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         
-        {/* 🔥 Header Section (নতুন যোগ করা হয়েছে) */}
+
         <div className="text-center max-w-2xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -125,9 +125,12 @@ const ProjectSection = () => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentProjects = projects.slice(startIndex, startIndex + itemsPerPage);
 
+  // Safe Page Change Function with Strict Boundaries
   const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
+ 
+    if (pageNumber < 1 || pageNumber > totalPages) return;
 
+    setCurrentPage(pageNumber);
     window.scrollTo({ top: 300, behavior: 'smooth' });
   };
 
@@ -182,7 +185,7 @@ const ProjectSection = () => {
                       <div className="w-3 h-3 rounded-full bg-sky-500/80" />
                       <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
                     </div>
-                    <div className="h-[2px] w20 rounded-full bg-gradient-to-r from-purple-500/70 to-transparent" />
+                    <div className="h-[2px] w-20 rounded-full bg-gradient-to-r from-purple-500/70 to-transparent" />
                   </div>
 
                   {/* Image Container */}
@@ -232,11 +235,16 @@ const ProjectSection = () => {
         {/* --- PAGINATION CONTROLS --- */}
         {totalPages > 1 && (
           <div className="mt-16 flex items-center justify-center gap-3">
+            
             {/* Prev Button */}
             <Button
               onClick={() => handlePageChange(currentPage - 1)}
-              disabled={currentPage === 1}
-              className="p-3 rounded-full bg-[#161025] border border-white/10 hover:border-purple-500/50 disabled:opacity-30 disabled:hover:border-white/10 transition-all cursor-pointer disabled:cursor-not-allowed"
+              isDisabled={currentPage === 1}
+              className={`p-3 rounded-full bg-[#161025] border border-white/10 transition-all ${
+                currentPage === 1
+                  ? 'opacity-20 cursor-not-allowed border-white/5 pointer-events-none'
+                  : 'hover:border-purple-500/50 cursor-pointer'
+              }`}
             >
               <p className='flex gap-1 items-center'><ChevronLeft size={20} />Prev</p>
             </Button>
@@ -249,7 +257,7 @@ const ProjectSection = () => {
                   onClick={() => handlePageChange(page)}
                   className={`w-11 h-11 rounded-full text-sm font-bold transition-all cursor-pointer ${
                     currentPage === page
-                      ? ' bg-blue-600 text-white scale-105'
+                      ? 'bg-blue-600 text-white scale-105 shadow-lg shadow-blue-500/30'
                       : 'bg-[#161025] border border-white/10 text-gray-400 hover:text-white hover:border-purple-500/30'
                   }`}
                 >
@@ -261,11 +269,16 @@ const ProjectSection = () => {
             {/* Next Button */}
             <Button
               onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === totalPages}
-              className="p-3 rounded-full bg-[#161025] border border-white/10 hover:border-purple-500/50 disabled:opacity-30 disabled:hover:border-white/10 transition-all cursor-pointer disabled:cursor-not-allowed"
+              isDisabled={currentPage === totalPages}
+              className={`p-3 rounded-full bg-[#161025] border border-white/10 transition-all ${
+                currentPage === totalPages
+                  ? 'opacity-20 cursor-not-allowed border-white/5 pointer-events-none'
+                  : 'hover:border-purple-500/50 cursor-pointer'
+              }`}
             >
               <p className='flex gap-1 items-center'>Next<ChevronRight size={20} /></p>
             </Button>
+
           </div>
         )}
 
