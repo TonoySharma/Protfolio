@@ -2,7 +2,7 @@ import AboutSectionPage from '@/components/aboutSection/About';
 import React from 'react';
 
 export const metadata = {
-  title: "About - Tonoy Sharma",
+  title: "About",
   description:
     "Passionate Full Stack Developer dedicated to creating modern web experiences.",
 };
