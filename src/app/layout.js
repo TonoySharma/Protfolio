@@ -62,7 +62,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Tonoy Sharma | Full Stack Developer",
     description:
-      "Modern developer portfolio built with Next.js, React, and Tailwind CSS.",
+      "Modern developer portfolio built with Next.js, next.js, TypeScript, JavaScript, React, and Tailwind CSS.",
     images: ["/tonoy.png"],
   },
 
