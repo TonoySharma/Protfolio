@@ -15,10 +15,11 @@ import {
   SiDaisyui,
   SiNetlify,
   SiTypescript,
+  SiExpress,
 } from "react-icons/si";
 
 import { TbBrandVscode } from "react-icons/tb";
-import { RiHtml5Fill } from "react-icons/ri";
+import { RiHtml5Fill, RiShieldKeyholeLine } from "react-icons/ri";
 
 const skills = [
   {
@@ -55,6 +56,16 @@ const skills = [
     name: "Tailwind CSS",
     level: "Advanced",
     icon: <SiTailwindcss className="text-sky-400" />,
+  },
+  {
+    name: "Express.js",
+    level: "Advanced",
+    icon: <SiExpress className="text-white" />,
+  },
+  {
+    name: "Better Auth",
+    level: "Advanced",
+    icon: <RiShieldKeyholeLine className="text-white" />,
   },
   {
     name: "HTML",

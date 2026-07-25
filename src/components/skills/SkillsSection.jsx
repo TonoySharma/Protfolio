@@ -15,17 +15,13 @@ import {
   SiDaisyui,
   SiNetlify,
   SiTypescript,
+  SiExpress,
 } from "react-icons/si";
 
 import { TbBrandVscode } from "react-icons/tb";
-import { RiHtml5Fill } from "react-icons/ri";
+import { RiHtml5Fill, RiShieldKeyholeLine } from "react-icons/ri";
 
 const skills = [
-  {
-    name: "HTML",
-    level: "Advanced",
-    icon: <RiHtml5Fill className="text-orange-500" />,
-  },
   {
     name: "React.js",
     level: "Advanced",
@@ -47,6 +43,16 @@ const skills = [
     icon: <SiTypescript className="text-blue-500" />,
   },
   {
+    name: "Express.js",
+    level: "Advanced",
+    icon: <SiExpress className="text-white" />,
+  },
+  {
+    name: "Better Auth",
+    level: "Advanced",
+    icon: <RiShieldKeyholeLine className="text-white" />,
+  },
+  {
     name: "Node.js",
     level: "Intermediate",
     icon: <SiNodedotjs className="text-green-500" />,
@@ -55,6 +61,11 @@ const skills = [
     name: "MongoDB",
     level: "Intermediate",
     icon: <SiMongodb className="text-green-400" />,
+  },
+  {
+    name: "HTML",
+    level: "Advanced",
+    icon: <RiHtml5Fill className="text-orange-500" />,
   },
   {
     name: "Tailwind CSS",
@@ -138,7 +149,7 @@ const Technologies = () => {
         </div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
           {skills.map((skill, index) => (
             <motion.div
               key={index}
