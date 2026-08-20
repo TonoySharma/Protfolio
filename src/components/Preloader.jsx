@@ -13,12 +13,12 @@ export default function Preloader() {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          setTimeout(() => setLoading(false), 500);
+          setTimeout(() => setLoading(false), 0);
           return 100;
         }
         return prev + 1;
       });
-    }, 20); 
+    }, 10); 
 
     return () => clearInterval(interval);
   }, []);
