@@ -43,16 +43,6 @@ const skills = [
     icon: <SiTypescript className="text-blue-500" />,
   },
   {
-    name: "Express.js",
-    level: "Advanced",
-    icon: <SiExpress className="text-white" />,
-  },
-  {
-    name: "Better Auth",
-    level: "Advanced",
-    icon: <RiShieldKeyholeLine className="text-white" />,
-  },
-  {
     name: "Node.js",
     level: "Intermediate",
     icon: <SiNodedotjs className="text-green-500" />,
@@ -63,14 +53,24 @@ const skills = [
     icon: <SiMongodb className="text-green-400" />,
   },
   {
-    name: "HTML",
-    level: "Advanced",
-    icon: <RiHtml5Fill className="text-orange-500" />,
-  },
-  {
     name: "Tailwind CSS",
     level: "Advanced",
     icon: <SiTailwindcss className="text-sky-400" />,
+  },
+  {
+    name: "Express.js",
+    level: "Advanced",
+    icon: <SiExpress className="text-white" />,
+  },
+  {
+    name: "Better Auth",
+    level: "Advanced",
+    icon: <RiShieldKeyholeLine className="text-white" />,
+  },
+  {
+    name: "HTML",
+    level: "Advanced",
+    icon: <RiHtml5Fill className="text-orange-500" />,
   },
   {
     name: "DaisyUI",
@@ -101,11 +101,10 @@ const skills = [
 
 const Technologies = () => {
   return (
-    <section className="relative overflow-hidden bg-[#030014] py-20 px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-[#030014] py-30 px-4 sm:px-6 lg:px-8">
 
       {/* Background Glow */}
       <div className="absolute top-[-10%] left-[-10%] h-[350px] w-[350px] rounded-full bg-violet-700/20 blur-[120px]" />
-
       <div className="absolute bottom-[-10%] right-[-10%] h-[350px] w-[350px] rounded-full bg-cyan-500/20 blur-[120px]" />
 
       {/* Grid Overlay */}
@@ -119,7 +118,7 @@ const Technologies = () => {
             initial={{ opacity: 0, y: -15 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="inline-flex items-center gap-2 text-[11px] tracking-[0.35em] uppercase text-violet-400 font-medium mb-5"
+            className="inline-flex items-center gap-2 text-[11px] tracking-[0.35em] uppercase text-violet-400 font-medium mb-4"
           >
             <span className="h-[6px] w-[6px] rounded-full bg-violet-400" />
             Tech Stack
@@ -129,7 +128,7 @@ const Technologies = () => {
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight"
           >
             Skills &{" "}
             <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
@@ -141,82 +140,81 @@ const Technologies = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="mt-5 text-gray-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed"
+            className="mt-4 text-gray-400 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed"
           >
             Modern technologies and tools I use to craft fast,
             scalable and interactive full-stack web applications.
           </motion.p>
         </div>
 
-        {/* Skills Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
+        {/* Skills Grid - Responsive 2 to 5 Columns */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
           {skills.map((skill, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
-                duration: 0.45,
-                delay: index * 0.06,
+                duration: 0.35,
+                delay: index * 0.04,
               }}
               whileHover={{
-                y: -10,
+                y: -6,
               }}
               className="group relative"
             >
-              {/* Card */}
+              {/* Card - Compact Padding & Rounded */}
               <div
                 className="
-                relative h-full overflow-hidden rounded-3xl
+                relative h-full overflow-hidden rounded-2xl
                 border border-white/10
-                bg-white/[0.04]
-                backdrop-blur-xl
-                p-5 sm:p-7
-                transition-all duration-500
+                bg-white/[0.03]
+                backdrop-blur-lg
+                p-3.5 sm:p-4
+                transition-all duration-300
 
                 group-hover:border-violet-500/40
                 group-hover:bg-white/[0.06]
-                group-hover:shadow-[0_0_30px_rgba(139,92,246,0.18)]
+                group-hover:shadow-[0_0_20px_rgba(139,92,246,0.15)]
               "
               >
-
                 {/* Top Glow */}
-                <div className="absolute top-0 left-0 h-24 w-24 rounded-full bg-violet-500/10 blur-3xl" />
+                <div className="absolute top-0 left-0 h-16 w-16 rounded-full bg-violet-500/10 blur-2xl" />
 
                 {/* Hover Gradient */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.04),transparent)] -translate-x-full group-hover:translate-x-full" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.03),transparent)] -translate-x-full group-hover:translate-x-full" />
 
-                {/* Icon */}
-                <div className="relative mb-5 flex items-center justify-center">
+                {/* Icon Box - Smaller Size */}
+                <div className="relative mb-3 flex items-center justify-center">
                   <div
                     className="
-                    flex h-16 w-16 sm:h-20 sm:w-20
+                    flex h-12 w-12 sm:h-14 sm:w-14
                     items-center justify-center
-                    rounded-2xl
+                    rounded-xl
                     border border-white/10
                     bg-white/5
-                    text-3xl sm:text-4xl
+                    text-2xl sm:text-3xl
 
-                    transition-all duration-500
+                    transition-all duration-300
 
                     group-hover:bg-violet-500/10
-                    group-hover:shadow-[0_0_25px_rgba(139,92,246,0.28)]
-                    group-hover:scale-110
+                    group-hover:shadow-[0_0_20px_rgba(139,92,246,0.25)]
+                    group-hover:scale-105
                   "
                   >
                     {skill.icon}
                   </div>
                 </div>
 
-                {/* Content */}
+                {/* Content - Compact Typography */}
                 <div className="text-center relative z-10">
-                  <h3 className="text-white text-sm sm:text-lg font-semibold tracking-wide transition-colors duration-300 group-hover:text-violet-300">
+                  <h3 className="text-white text-xs sm:text-sm font-semibold tracking-wide transition-colors duration-300 group-hover:text-violet-300">
                     {skill.name}
                   </h3>
 
-                  <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] sm:text-xs uppercase tracking-[0.2em] text-gray-300">
-                    <span className="h-2 w-2 rounded-full bg-gradient-to-r from-violet-400 to-cyan-400 shadow-[0_0_12px_rgba(168,85,247,0.9)]" />
+                  <div className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[9px] sm:text-[10px] uppercase tracking-[0.15em] text-gray-300">
+                    <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-violet-400 to-cyan-400 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
                     {skill.level}
                   </div>
                 </div>
