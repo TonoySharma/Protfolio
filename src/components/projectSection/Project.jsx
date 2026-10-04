@@ -7,6 +7,24 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@heroui/react';
 
 const projects = [
+    {
+    title: "TechBasket – AI-Powered Inventory & RMA Management System",
+    type: "Team Project",
+    description:
+      "A full-stack enterprise management platform built collaboratively with the Endgame-HexaVengers team to simplify inventory, purchasing, product returns, and RMA operations. Built with a type-safe architecture, RESTful APIs, role-based access control, and AI-powered insights.",
+    image: "/project-14.png",
+    tags: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+    ],
+    liveLink: "https://tech-basket-frontend-seven.vercel.app/",
+    githubLink: "https://github.com/Endgame-HexaVengers/Tech-Basket-Frontend",
+    backendLink: "https://github.com/Endgame-HexaVengers/Tech-Basket-Backend",
+  },
   {
     title: "DriveFleet (Car Rental)",
     description: "A full-stack vehicle booking platform featuring real-time vehicle availability, flexible reservation options, and backend API integration.",
