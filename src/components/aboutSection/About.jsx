@@ -6,7 +6,7 @@ const AboutSectionPage = () => {
   const stats = [
     { label: "Years of Experience", value: "1+" },
     { label: "Projects Completed", value: "20+" },
-    { label: "GitHub Repos", value: "30+" },
+    { label: "GitHub Repos", value: "50+" },
     { label: "Technologies", value: "10+" },
   ];
 

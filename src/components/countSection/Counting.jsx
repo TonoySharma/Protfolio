@@ -35,7 +35,7 @@ function Counter({ value, isDecimal = false }) {
 const statsData = [
   { value: 1, label: "Years of", subLabel: "Experience" },
   { value: 20, label: "Projects", subLabel: "Completed" },
-  { value: 30, label: "GitHub", subLabel: "Repositories" },
+  { value: 50, label: "GitHub", subLabel: "Repositories" },
   { value: 10, label: "Mastered", subLabel: "Technologies" },
 ];
 

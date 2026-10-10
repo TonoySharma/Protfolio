@@ -121,9 +121,9 @@ const ContactSectionPage = () => {
               </div>
               <select className="gold-input" name="service" required>
                 <option value="" className="text-black">Select a service</option>
-                <option value="Web Development" className="text-black">Web Development</option>
+                <option value="Web Development" className="text-black">Frontend Development</option>
                 <option value="UI/UX Design" className="text-black">UI/UX Design</option>
-                <option value="Full Stack" className="text-black">Full Stack Project</option>
+                <option value="Full Stack" className="text-black">Full Stack Development</option>
               </select>
               <textarea className="gold-input" name="message" rows={4} placeholder="Your message…" required style={{ resize: "none" }} />
 
