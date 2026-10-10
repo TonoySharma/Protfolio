@@ -9,21 +9,21 @@ export default function WelcomeVoice() {
     audio.volume = 1;
     audio.preload = "auto";
 
-    const playAudio = async () => {
+    const playWelcome = async () => {
       try {
         await audio.play();
-        console.log("Welcome audio started");
+        console.log("Welcome audio is playing");
       } catch (error) {
-        console.log("Autoplay blocked:", error);
+        console.warn("Welcome audio blocked:", error.name, error.message);
       }
     };
 
-    const timer = setTimeout(playAudio, 1000);
+    const timer = setTimeout(playWelcome, 1000);
 
     return () => {
       clearTimeout(timer);
       audio.pause();
-      audio.currentTime = 0;
+      audio.src = "";
     };
   }, []);
 
