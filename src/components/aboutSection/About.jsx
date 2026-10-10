@@ -11,9 +11,9 @@ const AboutSectionPage = () => {
   ];
 
   return (
-  
+
     <section className="relative bg-[#05010d] py-20 md:py-40 px-4 sm:px-6 overflow-hidden">
-      
+
       {/* Background Glow */}
       <div className="absolute top-[-10%] left-[-10%] w-[400px] h-[400px] bg-purple-600/20 blur-[140px] rounded-full" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] bg-blue-600/20 blur-[140px] rounded-full" />
@@ -27,23 +27,23 @@ const AboutSectionPage = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className="relative group order-2 lg:order-1" 
+            className="relative group order-2 lg:order-1"
           >
             <div className="relative w-full aspect-square max-w-[320px] sm:max-w-[450px] mx-auto rounded-[20px] overflow-hidden border border-white/10 shadow-2xl shadow-purple-500/10">
-              <img 
-                src="tonoy.png" 
-                alt="Tonoy" 
+              <img
+                src="tonoy.png"
+                alt="Tonoy"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#05010d] via-transparent to-transparent opacity-60" />
             </div>
-            
-            <motion.div 
+
+            <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ repeat: Infinity, duration: 4 }}
               className="absolute -bottom-4 -right-2 md:right-10 bg-[#140c1c]/90 backdrop-blur-xl border border-white/10 p-4 md:p-6 rounded-2xl shadow-xl"
@@ -56,7 +56,7 @@ const AboutSectionPage = () => {
           </motion.div>
 
           {/* Right: Content Area */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -71,12 +71,13 @@ const AboutSectionPage = () => {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">
                 Tonoy
               </span>
-              , a Frontend Web Developer
+              , a Full Stack Web Developer
             </h2>
 
             <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-8">
-              I specialize in building high-performance, interactive, and visually stunning web applications.
-              My journey as a frontend developer is driven by a deep love for clean code and user-centric design.
+              I specialize in building modern, scalable, and high-performance full-stack web applications with seamless functionality and intuitive user interfaces.
+
+              My journey as a developer is driven by a passion for writing clean, maintainable code, designing engaging user experiences, and developing efficient backend solutions using modern web technologies.
             </p>
 
             <div className="grid grid-cols-2 gap-4 md:gap-8 mb-10">
