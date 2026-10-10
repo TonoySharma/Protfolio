@@ -27,11 +27,11 @@ export default function Banner() {
           </h2>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight">
-            Frontend Web Developer
+            Full Stack Web Developer
           </h1>
 
           <p className="text-base md:text-lg text-gray-300 max-w-2xl leading-relaxed">
-            I specialize in building high-performance, interactive, and visually stunning web applications with modern technologies and clean UI systems.
+           I build modern, responsive, and user-friendly web applications using React, Next.js, TypeScript, Node.js, and MongoDB. I focus on creating clean UI, efficient backend systems, and seamless user experiences with modern web technologies.
           </p>
 
           {/* Buttons */}
