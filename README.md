@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Tonoy Sharma | Full Stack Web Developer
 
-First, run the development server:
+Welcome to my personal portfolio! 🚀
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+I am **Tonoy Sharma**, a passionate Web Developer from Tangail, Bangladesh. I enjoy building modern, responsive, and user-friendly web applications using modern web technologies.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This portfolio showcases my technical skills, projects, experience, and journey as a developer.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 👨‍💻 About Me
 
-## Learn More
+- **Name:** Tonoy Sharma
+- **Location:** Tangail, Bangladesh
+- **Profession:** Full Stack Web Developer
+- **Education:** Commerce Background
+- **Web Development Training:** Programming Hero
 
-To learn more about Next.js, take a look at the following resources:
+I transitioned into web development from a Commerce background and have been continuously improving my programming skills by building practical projects and collaborating with other developers.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+My goal is to create scalable, accessible, and high-quality web applications while growing as a Full Stack Developer.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🛠️ Technologies & Skills
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Frontend Development
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- React.js
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Framer Motion
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Backend Development
+- Node.js
+- Express.js
+- REST APIs
+- MongoDB
+
+### Tools & Platforms
+- Git & GitHub
+- Vercel
+- Netlify
+- VS Code
+
+### Additional Skills
+- Responsive Web Design
+- Authentication & Authorization
+- Role-Based Access Control (RBAC)
+- API Integration
+- Team Collaboration
+- AI Integration
+
+## ✨ Portfolio Features
+
+- Modern and responsive design
+- Interactive hero section
+- Animated components and transitions
+- Technical skills showcase
+- Featured project gallery
+- Resume and CV access
+- Contact section with social links
+- AI-powered recruiter chatbot
+- Welcome audio experience
+- Dark-themed visual design with glowing accents
