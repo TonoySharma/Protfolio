@@ -7,6 +7,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 import Preloader from "@/components/Preloader";
 import WelcomeVoice from "@/components/WelcomeVoice";
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -84,8 +85,8 @@ export default function RootLayout({ children }) {
         <NavBar />
         <CursorFollower />
         <SmoothScroll>
-           <WelcomeVoice />
-        <main>{children}</main>
+          <WelcomeVoice />
+          <main>{children}</main>
         </SmoothScroll>
       </body>
     </html>
