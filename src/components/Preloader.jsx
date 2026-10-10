@@ -4,16 +4,21 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Preloader() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    const preloaderKey = "portfolio-preloader-shown";
 
+    if (sessionStorage.getItem(preloaderKey)) return;
+
+    setLoading(true);
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          setTimeout(() => setLoading(false), 0);
+          sessionStorage.setItem(preloaderKey, "true");
+          setLoading(false);
           return 100;
         }
         return prev + 1;

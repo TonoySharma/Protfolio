@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Link } from "@heroui/react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { MdArrowRightAlt } from "react-icons/md";
 
