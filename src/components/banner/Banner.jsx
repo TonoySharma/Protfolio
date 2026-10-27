@@ -112,7 +112,7 @@ export default function Banner() {
               <div className="w-full h-full rounded-full overflow-hidden bg-[#030014] relative">
                 {/* Final Image Component */}
                 <Image
-                  src="/tonoy.png"
+                  src="/Tonoy.png"
                   alt="Tonoy"
                   fill
                   className="object-cover object-top scale-105"
