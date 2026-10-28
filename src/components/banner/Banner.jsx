@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { FaLinkedinIn, FaGithub, FaDownload } from "react-icons/fa";
 import { SiFacebook } from "react-icons/si";
 import { MdOutlineMailOutline } from "react-icons/md";
-import { Button } from "@heroui/react";
 
 export default function Banner() {
   return (
@@ -39,27 +38,23 @@ export default function Banner() {
           <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-6">
 
             {/* Download CV Button */}
-            <Button
-              as="a"
+            <a
+              href="#"
+              className="flex items-center gap-2 px-5 py-2.5 rounded bg-violet-600/20 border border-violet-500/30 backdrop-blur-md text-sm md:text-base text-white font-semibold hover:bg-violet-600/40 hover:border-violet-500 transition-all duration-300"
+            >
+              Download CV <FaDownload className="text-xs" />
+            </a>
+
+
+            {/* Download Resume Button */}
+            <a
               href="/Tonoy_Sharma_Full_Stack_Developer_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              variant="outline"
-              className="flex items-center gap-2 px-5 py-2.5 rounded border border-violet-500/30 bg-violet-600/20 backdrop-blur-md text-white font-semibold hover:bg-violet-600/40 hover:border-violet-500 transition-all duration-300"
+              className="flex items-center gap-2 px-5 py-2.5 rounded bg-violet-600/20 border border-violet-500/30 backdrop-blur-md text-sm md:text-base text-white font-semibold hover:bg-violet-600/40 hover:border-violet-500 transition-all duration-300"
             >
-              Download CV <FaDownload className="text-xs" />
-            </Button>
-
-            {/* Download Resume Button */}
-            <Button
-              as="a"
-              href="/Tonoy_Sharma_Full_Stack_Developer_Resume.pdf"
-              download="Tonoy_Sharma_Full_Stack_Developer_Resume.pdf"
-              variant="outline"
-              className="flex items-center gap-2 px-5 py-2.5 rounded border border-violet-500/30 bg-violet-600/20 backdrop-blur-md text-white font-semibold hover:bg-violet-600/40 hover:border-violet-500 transition-all duration-300"
-            >
-              Resume <FaDownload className="text-xs" />
-            </Button>
+              View Resume <FaDownload className="text-xs" />
+            </a>
 
             <div className="flex items-center gap-4">
               {[
