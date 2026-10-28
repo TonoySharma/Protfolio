@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { FaLinkedinIn, FaGithub, FaDownload } from "react-icons/fa";
 import { SiFacebook } from "react-icons/si";
 import { MdOutlineMailOutline } from "react-icons/md";
+import { Button } from "@heroui/react";
 
 export default function Banner() {
   return (
@@ -31,29 +32,34 @@ export default function Banner() {
           </h1>
 
           <p className="text-base md:text-lg text-gray-300 max-w-2xl leading-relaxed">
-           I build modern, responsive, and user-friendly web applications using React, Next.js, TypeScript, Node.js, and MongoDB. I focus on creating clean UI, efficient backend systems, and seamless user experiences with modern web technologies.
+            I build modern, responsive, and user-friendly web applications using React, Next.js, TypeScript, Node.js, and MongoDB. I focus on creating clean UI, efficient backend systems, and seamless user experiences with modern web technologies.
           </p>
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-6">
 
             {/* Download CV Button */}
-            <a
-              href="#"
-              className="flex items-center gap-2 px-5 py-2.5 rounded bg-violet-600/20 border border-violet-500/30 backdrop-blur-md text-sm md:text-base text-white font-semibold hover:bg-violet-600/40 hover:border-violet-500 transition-all duration-300"
+            <Button
+              as="a"
+              href="/Tonoy_Sharma_Full_Stack_Developer_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="outline"
+              className="flex items-center gap-2 px-5 py-2.5 rounded border border-violet-500/30 bg-violet-600/20 backdrop-blur-md text-white font-semibold hover:bg-violet-600/40 hover:border-violet-500 transition-all duration-300"
             >
               Download CV <FaDownload className="text-xs" />
-            </a>
-
+            </Button>
 
             {/* Download Resume Button */}
-            <a
-              href="/tonoy_sharma_Resume.pdf" 
-              download="Tonoy_Sharma.pdf"
-              className="flex items-center gap-2 px-5 py-2.5 rounded bg-violet-600/20 border border-violet-500/30 backdrop-blur-md text-sm md:text-base text-white font-semibold hover:bg-violet-600/40 hover:border-violet-500 transition-all duration-300"
+            <Button
+              as="a"
+              href="/Tonoy_Sharma_Full_Stack_Developer_Resume.pdf"
+              download="Tonoy_Sharma_Full_Stack_Developer_Resume.pdf"
+              variant="outline"
+              className="flex items-center gap-2 px-5 py-2.5 rounded border border-violet-500/30 bg-violet-600/20 backdrop-blur-md text-white font-semibold hover:bg-violet-600/40 hover:border-violet-500 transition-all duration-300"
             >
               Resume <FaDownload className="text-xs" />
-            </a>
+            </Button>
 
             <div className="flex items-center gap-4">
               {[

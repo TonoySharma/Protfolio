@@ -87,16 +87,6 @@ const skills = [
     level: "Advanced",
     icon: <SiGithub className="text-white" />,
   },
-  {
-    name: "Vercel",
-    level: "Intermediate",
-    icon: <SiVercel className="text-white" />,
-  },
-  {
-    name: "Netlify",
-    level: "Intermediate",
-    icon: <SiNetlify className="text-cyan-400" />,
-  },
 ];
 
 const Technologies = () => {

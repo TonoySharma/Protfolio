@@ -5,7 +5,7 @@ import "animate.css";
 import CursorFollower from "@/components/cursorFollower/CursorFollower";
 import SmoothScroll from "@/components/SmoothScroll";
 import Preloader from "@/components/Preloader";
-import WelcomeVoice from "@/components/WelcomeVoice";
+
 
 
 const geistSans = Geist({
@@ -85,7 +85,6 @@ export default function RootLayout({ children }) {
         <NavBar />
         <CursorFollower />
         <SmoothScroll>
-          <WelcomeVoice />
           <main>{children}</main>
         </SmoothScroll>
       </body>
