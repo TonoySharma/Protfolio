@@ -113,13 +113,12 @@ export default function Banner() {
               <div className="w-full h-full rounded-full overflow-hidden bg-[#030014] relative">
                 {/* Final Image Component */}
                 <Image
-                  src="/Tonoy.png"
+                  src="/tonoy.png"
                   alt="Tonoy"
                   fill
                   className="object-cover object-top scale-105"
                   priority
                 />
-
                 {/* Subtle Inner Overlay for blend */}
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-violet-900/30" />
               </div>
