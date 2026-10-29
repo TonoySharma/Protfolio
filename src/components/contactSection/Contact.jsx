@@ -96,6 +96,14 @@ const ContactSectionPage = () => {
           border: 1px solid rgba(184,134,11,0.1); background: rgba(255,255,255,0.02); transition: all 0.3s;
         }
         .contact-card:hover { border-color: rgba(255,215,0,0.25); background: rgba(255,215,0,0.03); transform: translateX(6px); }
+        .contact-value { overflow-wrap: anywhere; }
+        @media (max-width: 640px) {
+          .contact-panel { padding: 24px !important; }
+          .contact-fields { grid-template-columns: minmax(0, 1fr) !important; }
+          .contact-grid { gap: 32px !important; }
+          .contact-card { gap: 14px; padding: 16px; }
+          .contact-card:hover { transform: none; }
+        }
       `}</style>
 
       <section style={{ position: "relative", overflow: "hidden", background: "#05030a", minHeight: "100vh", display: "flex", alignItems: "center", padding: "80px 24px" }}>
@@ -103,19 +111,19 @@ const ContactSectionPage = () => {
         {/* Background Gradients & Grid remain the same... */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(184,134,11,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(184,134,11,0.04) 1px, transparent 1px)", backgroundSize: "48px 48px", pointerEvents: "none" }} />
 
-        <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 480px), 1fr))", gap: "48px", position: "relative", zIndex: 1 }}>
+        <div className="contact-grid" style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 480px), 1fr))", gap: "48px", position: "relative", zIndex: 1 }}>
 
           {/* LEFT — Form */}
-          <motion.div {...fadeUp(0)} style={{ background: "rgba(255,255,255,0.025)", backdropFilter: "blur(24px)", borderRadius: "28px", border: "1px solid rgba(184,134,11,0.15)", padding: "40px", boxShadow: "0 24px 80px rgba(0,0,0,0.5)" }}>
+          <motion.div className="contact-panel" {...fadeUp(0)} style={{ background: "rgba(255,255,255,0.025)", backdropFilter: "blur(24px)", borderRadius: "28px", border: "1px solid rgba(184,134,11,0.15)", padding: "40px", boxShadow: "0 24px 80px rgba(0,0,0,0.5)" }}>
 
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "40px", marginBottom: "20px", color: "#ffd700" }}>Let&apos;s Work Together</h2>
 
             <form ref={formRef} onSubmit={sendEmail} style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+              <div className="contact-fields" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "12px" }}>
                 <input className="gold-input" name="first_name" type="text" placeholder="First name" required />
                 <input className="gold-input" name="last_name" type="text" placeholder="Last name" required />
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+              <div className="contact-fields" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "12px" }}>
                 <input className="gold-input" name="user_email" type="email" placeholder="Email address" required />
                 <input className="gold-input" name="user_phone" type="tel" placeholder="Phone number" />
               </div>
@@ -154,7 +162,7 @@ const ContactSectionPage = () => {
                   </div>
                   <div>
                     <p style={{ fontSize: "10px", color: "gray", textTransform: "uppercase" }}>{label}</p>
-                    <p style={{ fontSize: "18px", color: "white" }}>{value}</p>
+                    <p className="contact-value" style={{ fontSize: "18px", color: "white" }}>{value}</p>
                   </div>
                 </a>
               </motion.div>

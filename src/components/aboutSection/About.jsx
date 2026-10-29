@@ -36,7 +36,7 @@ const AboutSectionPage = () => {
           >
             <div className="relative w-full aspect-square max-w-[320px] sm:max-w-[450px] mx-auto rounded-[20px] overflow-hidden border border-white/10 shadow-2xl shadow-purple-500/10">
               <img
-                src="Tonoy.png"
+                src="/tonoy.png"
                 alt="Tonoy"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
               />

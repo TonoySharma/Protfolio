@@ -97,12 +97,12 @@ const Counting = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex items-center gap-4 justify-center md:justify-start"
+              className="flex flex-col items-center gap-2 text-center sm:flex-row sm:gap-4 sm:text-left md:justify-start"
             >
-              <h3 className="text-5xl md:text-6xl font-bold text-white tracking-tighter">
+              <h3 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tighter">
                 <Counter value={item.value} />+
               </h3>
-              <p className="text-xs md:text-sm text-neutral-400 leading-tight uppercase tracking-widest font-medium">
+              <p className="text-[10px] sm:text-xs md:text-sm text-neutral-400 leading-tight uppercase tracking-wide sm:tracking-widest font-medium">
                 {item.label} <br /> {item.subLabel}
               </p>
             </motion.div>

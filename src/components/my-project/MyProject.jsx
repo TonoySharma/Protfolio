@@ -613,7 +613,7 @@ const ProjectSection = () => {
             project-carousel
             flex
             gap-6
-            overflow-x-hidden
+            overflow-x-auto
             overflow-y-hidden
             ${isDragging
               ? 'snap-none cursor-grabbing select-none'

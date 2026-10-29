@@ -12,6 +12,7 @@ export default function Preloader() {
 
     if (sessionStorage.getItem(preloaderKey)) return;
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLoading(true);
     const interval = setInterval(() => {
       setProgress((prev) => {

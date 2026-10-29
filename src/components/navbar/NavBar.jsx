@@ -88,7 +88,7 @@ const NavBar = () => {
         }
         .t-hirebtn:active { transform: translateY(0); }
 
-        @media (min-width: 768px) {
+        @media (min-width: 1024px) {
           .tmd-flex { display: flex !important; }
           .tmd-block { display: block !important; }
           .tmob-only { display: none !important; }
@@ -171,7 +171,7 @@ const NavBar = () => {
               listStyle: "none",
               margin: 0,
               padding: 0,
-              gap: "2.5rem",
+              gap: "clamp(1rem, 2.5vw, 2.5rem)",
               alignItems: "center",
             }}
           >
@@ -256,7 +256,9 @@ const NavBar = () => {
           <button
             className="tmob-only"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
             style={{
               display: "flex",
               flexDirection: "column",
@@ -310,9 +312,10 @@ const NavBar = () => {
                   position: "fixed",
                   top: 0, left: 0,
                   zIndex: 50,
-                  height: "100%",
+                  height: "100dvh",
                   width: "78%",
                   maxWidth: "300px",
+                  overflowY: "auto",
                   background: "#05030a",
                   borderRight: "1px solid rgba(184,134,11,0.12)",
                   display: "flex",
@@ -356,7 +359,7 @@ const NavBar = () => {
                 <div style={{ height: "1px", background: "rgba(184,134,11,0.1)", marginBottom: "2rem" }} />
 
                 {/* Nav links */}
-                <ul style={{ listStyle: "none", padding: 0, margin: 0, flex: 1 }}>
+                <ul id="mobile-navigation" style={{ listStyle: "none", padding: 0, margin: 0, flex: 1 }}>
                   {NavLinks.map((link, index) => (
                     <motion.li key={link.name}
                       initial={{ opacity: 0, x: -18 }}

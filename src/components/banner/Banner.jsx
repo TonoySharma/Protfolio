@@ -8,7 +8,7 @@ import { MdOutlineMailOutline } from "react-icons/md";
 
 export default function Banner() {
   return (
-    <main className="min-h-screen bg-[#030014] text-white flex items-center justify-center pt-20 md:pt-24 px-6 md:px-12 lg:px-24 pb-12 overflow-hidden relative">
+    <main className="min-h-screen bg-[#030014] text-white flex items-center justify-center pt-24 md:pt-28 px-4 sm:px-6 md:px-12 lg:px-24 pb-12 overflow-hidden relative">
 
       {/* Background Glow */}
       <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-violet-600/20 blur-[150px] rounded-full" />
@@ -17,7 +17,7 @@ export default function Banner() {
       {/* Grid Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center max-w-7xl mx-auto w-full">
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 lg:gap-24 items-center max-w-7xl mx-auto w-full">
 
         {/* LEFT SIDE */}
         <div className="space-y-6 md:space-y-8 text-center md:text-left">
@@ -101,7 +101,7 @@ export default function Banner() {
             />
 
             {/* Circular Border & Image */}
-            <div className="relative w-[320px] h-[320px] md:w-[380px] md:h-[380px] rounded-full p-[2px] bg-gradient-to-tr from-violet-500 via-cyan-400 to-blue-500 shadow-[0_0_40px_-10px_rgba(139,92,246,0.6)]">
+            <div className="relative w-[min(76vw,320px)] h-[min(76vw,320px)] md:w-[min(40vw,320px)] md:h-[min(40vw,320px)] lg:w-[380px] lg:h-[380px] rounded-full p-[2px] bg-gradient-to-tr from-violet-500 via-cyan-400 to-blue-500 shadow-[0_0_40px_-10px_rgba(139,92,246,0.6)]">
 
               {/* Spinning Overlay Ring (Cyber Effect) */}
               <motion.div
